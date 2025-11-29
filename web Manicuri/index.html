@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nails by Baby chays | Manicura de Lujo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --rosa-principal: #f8c8dc;
+            --rosa-oscuro: #e75480;
+            --rosa-claro: #fff0f5;
+            --dorado: #d4af37;
+            --gris-oscuro: #333;
+            --blanco: #fff;
+            --sombra: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--blanco);
+            color: var(--gris-oscuro);
+            overflow-x: hidden;
+        }
+
+        /* Header y Navegación */
+        header {
+            background: linear-gradient(135deg, var(--rosa-principal) 0%, var(--rosa-oscuro) 100%);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: var(--sombra);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            width: 60px;
+            height: 60px;
+            background-color: var(--blanco);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            box-shadow: var(--sombra);
+        }
+
+        .logo-img i {
+            font-size: 24px;
+            color: var(--rosa-oscuro);
+        }
+
+        .logo-text {
+            color: var(--blanco);
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            color: var(--blanco);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 5px 10px;
+            border-radius: 20px;
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(255,255,255,0.2);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1604654894610-df63bc536371?ixlib=rb-4.0.3&auto=format&fit=crop&w=1927&q=80') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--blanco);
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--rosa-oscuro);
+            color: var(--blanco);
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: var(--sombra);
+        }
+
+        .btn:hover {
+            background-color: var(--dorado);
+            transform: translateY(-3px);
+        }
+
+        /* Galería */
+        .gallery-section {
+            padding: 80px 0;
+            background-color: var(--rosa-claro);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--rosa-oscuro);
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: var(--gris-oscuro);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--sombra);
+            transition: all 0.5s ease;
+            height: 300px;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            padding: 20px;
+            color: var(--blanco);
+            transform: translateY(100%);
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        .gallery-overlay h3 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .gallery-overlay p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Contacto */
+        .contact-section {
+            padding: 80px 0;
+            background-color: var(--blanco);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .contact-info {
+            padding-right: 30px;
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            color: var(--rosa-oscuro);
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .whatsapp-animation {
+            display: flex;
+            align-items: center;
+            background-color: var(--rosa-claro);
+            padding: 15px 20px;
+            border-radius: 50px;
+            margin-bottom: 30px;
+            animation: pulse 2s infinite;
+            box-shadow: var(--sombra);
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+
+        .whatsapp-animation i {
+            font-size: 24px;
+            color: #25D366;
+            margin-right: 15px;
+        }
+
+        .whatsapp-animation span {
+            font-weight: 600;
+            color: var(--gris-oscuro);
+        }
+
+        .product-selector {
+            margin-bottom: 30px;
+        }
+
+        .product-selector label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--rosa-oscuro);
+        }
+
+        .product-selector select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            background-color: var(--blanco);
+        }
+
+        .contact-form {
+            background-color: var(--rosa-claro);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--sombra);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--rosa-oscuro);
+            outline: none;
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--gris-oscuro);
+            color: var(--blanco);
+            padding: 50px 0 20px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo-img {
+            width: 50px;
+            height: 50px;
+            background-color: var(--blanco);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+        }
+
+        .footer-logo-img i {
+            font-size: 20px;
+            color: var(--rosa-oscuro);
+        }
+
+        .footer-logo-text {
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .footer-about p {
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .footer-links h3,
+        .footer-contact h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--rosa-principal);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links ul li a {
+            color: var(--blanco);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--rosa-principal);
+        }
+
+        .footer-contact p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-contact p i {
+            margin-right: 10px;
+            color: var(--rosa-principal);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info {
+                padding-right: 0;
+            }
+            
+            nav ul {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .gallery {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container nav-container">
+            <div class="logo">
+                <div class="logo-img">
+                    <i class="fas fa-spa"></i>
+                </div>
+                <div class="logo-text">Nails by Baby chays</div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#galeria">Galería</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <h1>Elegancia en Cada Detalle</h1>
+            <p>Descubre el arte de la manicura de lujo con diseños exclusivos que realzan tu belleza natural. Experimenta un servicio premium en un ambiente sofisticado.</p>
+            <a href="#contacto" class="btn">Reserva tu Cita</a>
+        </div>
+    </section>
+
+    <!-- Galería -->
+    <section class="gallery-section" id="galeria">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nuestros Diseños Exclusivos</h2>
+                <p>Explora nuestra colección de uñas artísticas, cada una creada con precisión y pasión para destacar tu estilo único.</p>
+            </div>
+            <div class="gallery">
+                <!-- Producto 1 -->
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1607778833979-84d87a1756a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Diseño French Elegante" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3>French Elegante</h3>
+                        <p>Clásico renovado con toques dorados</p>
+                    </div>
+                </div>
+                <!-- Producto 2 -->
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Cristales Brillantes" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3>Cristales Brillantes</h3>
+                        <p>Lujo y sofisticación con piedras preciosas</p>
+                    </div>
+                </div>
+                <!-- Producto 3 -->
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Acrílico Moderno" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3>Acrílico Moderno</h3>
+                        <p>Formas geométricas y colores vibrantes</p>
+                    </div>
+                </div>
+                <!-- Producto 4 -->
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1597848212624-e6d4bd7d1296?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Ombre Rosa" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3>Ombre Rosa</h3>
+                        <p>Degradado suave en tonos rosados</p>
+                    </div>
+                </div>
+                <!-- Producto 5 -->
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1596704014032-6cfd57454b71?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Nude con Detalles" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3>Nude con Detalles</h3>
+                        <p>Elegancia minimalista con toques dorados</p>
+                    </div>
+                </div>
+                <!-- Producto 6 -->
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1607778833979-84d87a1756a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Flores Delicadas" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3>Flores Delicadas</h3>
+                        <p>Arte floral hecho a mano</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section class="contact-section" id="contacto">
+        <div class="container">
+            <div class="section-title">
+                <h2>Reserva tu Cita</h2>
+                <p>Selecciona tu diseño favorito y contáctanos para agendar una cita. Te garantizamos una experiencia de lujo y resultados excepcionales.</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Conectemos</h3>
+                    <p>Estamos aquí para realzar tu belleza con nuestros servicios premium de manicura. Contáctanos directamente por WhatsApp o completa el formulario.</p>
+                    
+                    <div class="whatsapp-animation">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>+1 234 567 8900</span>
+                    </div>
+                    
+                    <div class="product-selector">
+                        <label for="product">Selecciona tu diseño favorito:</label>
+                        <select id="product">
+                            <option value="">-- Elige un diseño --</option>
+                            <option value="french">French Elegante</option>
+                            <option value="cristales">Cristales Brillantes</option>
+                            <option value="acrilico">Acrílico Moderno</option>
+                            <option value="ombre">Ombre Rosa</option>
+                            <option value="nude">Nude con Detalles</option>
+                            <option value="flores">Flores Delicadas</option>
+                        </select>
+                    </div>
+                    
+                    <a href="https://wa.me/12345678900?text=Hola,%20me%20interesa%20reservar%20una%20cita%20para%20manicura" class="btn" target="_blank">Contactar por WhatsApp</a>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Nombre completo</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Correo electrónico</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Teléfono</label>
+                            <input type="tel" id="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mensaje</label>
+                            <textarea id="message" placeholder="Cuéntanos sobre el diseño que te interesa..."></textarea>
+                        </div>
+                        <button type="submit" class="btn">Enviar Mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <div class="footer-logo-img">
+                            <i class="fas fa-spa"></i>
+                        </div>
+                        <div class="footer-logo-text">Nails by [Tu Nombre]</div>
+                    </div>
+                    <p>Especialistas en manicura de lujo con diseños exclusivos y materiales premium. Transformamos tus uñas en obras de arte.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#galeria">Galería</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                        <li><a href="#">Servicios</a></li>
+                        <li><a href="#">Sobre Nosotros</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contacto</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Av. Elegante 123, Ciudad de Lujo</p>
+                    <p><i class="fas fa-phone"></i> +1 234 567 8900</p>
+                    <p><i class="fas fa-envelope"></i> info@nailsbynombre.com</p>
+                    <p><i class="fas fa-clock"></i> Lun - Vie: 9:00 - 19:00</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Nails by [Tu Nombre]. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const product = document.getElementById('product').value;
+            const name = document.getElementById('name').value;
+            
+            if(product) {
+                alert(`¡Gracias ${name}! Hemos recibido tu interés en nuestro diseño ${product}. Te contactaremos pronto.`);
+            } else {
+                alert(`¡Gracias ${name}! Hemos recibido tu mensaje. Te contactaremos pronto.`);
+            }
+            
+            this.reset();
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Mi Amor | Nuestro Mundo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --rosa-principal: #ffb6c1;
+            --rosa-claro: #ffe4e9;
+            --rosa-oscuro: #db7093;
+            --dorado: #e6be8a;
+            --blanco: #fff;
+            --sombra: 0 5px 15px rgba(0,0,0,0.1);
+            --sombra-intensa: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--rosa-claro);
+            color: #555;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Dancing Script', cursive;
+            color: var(--rosa-oscuro);
+        }
+
+        /* Header romántico con rizos decorativos */
+        .header {
+            height: 100vh;
+            background: linear-gradient(rgba(255, 182, 193, 0.7), rgba(255, 182, 193, 0.4)), 
+                        url('https://images.unsplash.com/photo-1518568814500-bf0f8d125f46?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--blanco);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .curls-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .curl {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--rosa-principal) 0%, var(--rosa-oscuro) 100%);
+            opacity: 0.3;
+            animation: float 15s infinite ease-in-out;
+        }
+
+        .curl:nth-child(1) {
+            width: 120px;
+            height: 120px;
+            top: 10%;
+            left: 5%;
+            animation-delay: 0s;
+        }
+
+        .curl:nth-child(2) {
+            width: 80px;
+            height: 80px;
+            top: 20%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+
+        .curl:nth-child(3) {
+            width: 100px;
+            height: 100px;
+            bottom: 15%;
+            left: 15%;
+            animation-delay: 4s;
+        }
+
+        .curl:nth-child(4) {
+            width: 70px;
+            height: 70px;
+            bottom: 25%;
+            right: 5%;
+            animation-delay: 6s;
+        }
+
+        .curl:nth-child(5) {
+            width: 90px;
+            height: 90px;
+            top: 40%;
+            left: 10%;
+            animation-delay: 8s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(10deg);
+            }
+        }
+
+        .header-content {
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .header h1 {
+            font-size: 5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+            animation: fadeIn 2s ease;
+        }
+
+        .header p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            font-family: 'Dancing Script', cursive;
+            animation: fadeIn 2.5s ease;
+        }
+
+        .heart-btn {
+            background-color: var(--rosa-oscuro);
+            color: var(--blanco);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: var(--sombra);
+            font-family: 'Poppins', sans-serif;
+            animation: pulse 2s infinite;
+        }
+
+        .heart-btn:hover {
+            background-color: var(--dorado);
+            transform: scale(1.05);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* Sección de Galería */
+        .gallery-section {
+            padding: 80px 20px;
+            background-color: var(--blanco);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            max-width: 600px;
+            margin: 0 auto;
+            color: #777;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--sombra);
+            transition: all 0.4s ease;
+            height: 350px;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--sombra-intensa);
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.05);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            padding: 20px;
+            color: var(--blanco);
+            transform: translateY(100%);
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        .gallery-overlay h3 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+
+        .gallery-overlay p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* Sección del Diario */
+        .diary-section {
+            padding: 80px 20px;
+            background-color: var(--rosa-claro);
+        }
+
+        .diary-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: var(--blanco);
+            border-radius: 15px;
+            box-shadow: var(--sombra-intensa);
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .diary-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(90deg, var(--rosa-principal), var(--dorado), var(--rosa-oscuro));
+        }
+
+        .diary-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--rosa-claro);
+            padding-bottom: 15px;
+        }
+
+        .diary-header h2 {
+            font-size: 2.5rem;
+        }
+
+        .add-entry-btn {
+            background-color: var(--rosa-oscuro);
+            color: var(--blanco);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .add-entry-btn:hover {
+            background-color: var(--dorado);
+        }
+
+        .diary-entries {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .diary-entry {
+            background-color: var(--rosa-claro);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: var(--sombra);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .diary-entry:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--sombra-intensa);
+        }
+
+        .entry-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .entry-date {
+            font-weight: 600;
+            color: var(--rosa-oscuro);
+        }
+
+        .entry-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            color: var(--rosa-oscuro);
+            margin-bottom: 10px;
+        }
+
+        .entry-content {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .entry-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .entry-btn {
+            background: none;
+            border: none;
+            color: var(--rosa-oscuro);
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .entry-btn:hover {
+            color: var(--dorado);
+        }
+
+        /* Modal para nueva entrada */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: var(--blanco);
+            border-radius: 15px;
+            padding: 30px;
+            width: 90%;
+            max-width: 600px;
+            box-shadow: var(--sombra-intensa);
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--rosa-oscuro);
+        }
+
+        .modal h2 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--rosa-oscuro);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: border 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--rosa-principal);
+            outline: none;
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background-color: var(--rosa-oscuro);
+            color: var(--blanco);
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--dorado);
+        }
+
+        /* Sección de mensajes secretos */
+        .secret-section {
+            padding: 80px 20px;
+            background-color: var(--blanco);
+            text-align: center;
+        }
+
+        .love-letter {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: var(--rosa-claro);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: var(--sombra);
+            position: relative;
+        }
+
+        .love-letter::before {
+            content: '"';
+            font-size: 8rem;
+            color: var(--rosa-principal);
+            position: absolute;
+            top: -30px;
+            left: 20px;
+            font-family: 'Dancing Script', cursive;
+            opacity: 0.3;
+        }
+
+        .love-letter p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #555;
+            font-style: italic;
+            text-align: left;
+        }
+
+        .signature {
+            text-align: right;
+            margin-top: 20px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            color: var(--rosa-oscuro);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--rosa-oscuro);
+            color: var(--blanco);
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer-heart {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 3.5rem;
+            }
+            
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+            
+            .diary-header {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .header h1 {
+                font-size: 2.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+            
+            .diary-container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header con rizos decorativos -->
+    <header class="header">
+        <div class="curls-container">
+            <div class="curl"></div>
+            <div class="curl"></div>
+            <div class="curl"></div>
+            <div class="curl"></div>
+            <div class="curl"></div>
+        </div>
+        <div class="header-content">
+            <h1>Para Mi Amor</h1>
+            <p>Cada día contigo es una página nueva en nuestra historia</p>
+            <button class="heart-btn" id="exploreBtn">
+                <i class="fas fa-heart"></i> Descubre Nuestro Mundo
+            </button>
+        </div>
+    </header>
+
+    <!-- Galería de fotos -->
+    <section class="gallery-section" id="gallery">
+        <div class="section-title">
+            <h2>Nuestros Momentos</h2>
+            <p>Recuerdos que atesoraré por siempre en mi corazón</p>
+        </div>
+        <div class="gallery">
+            <!-- Las imágenes se agregarán dinámicamente con JavaScript -->
+        </div>
+    </section>
+
+    <!-- Diario de nuestra relación -->
+    <section class="diary-section" id="diary">
+        <div class="section-title">
+            <h2>Nuestro Diario</h2>
+            <p>Donde guardamos los momentos especiales que compartimos</p>
+        </div>
+        <div class="diary-container">
+            <div class="diary-header">
+                <h2>Mi Diario Contigo</h2>
+                <button class="add-entry-btn" id="addEntryBtn">
+                    <i class="fas fa-plus"></i> Nueva Entrada
+                </button>
+            </div>
+            <div class="diary-entries" id="diaryEntries">
+                <!-- Las entradas del diario se agregarán dinámicamente -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Mensaje secreto -->
+    <section class="secret-section">
+        <div class="section-title">
+            <h2>Para Ti</h2>
+            <p>Un mensaje especial solo para mis ojos favoritos</p>
+        </div>
+        <div class="love-letter">
+            <p id="loveMessage">Mi amor, cada día a tu lado es un regalo que atesoro profundamente. Tu risa es la melodía que alegra mis días, y tus rizos hermosos son como los bucles de felicidad que envuelven mi corazón. Eres la razón por la que creo en el amor verdadero, y cada momento contigo es un tesoro que guardo en lo más profundo de mi ser. Te amo más de lo que las palabras pueden expresar.</p>
+            <div class="signature">Con todo mi amor,<br>Tu novio</div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-heart">
+                <i class="fas fa-heart"></i>
+            </div>
+            <p>Hecho con todo mi amor para la mujer más especial de mi vida</p>
+            <p>Eres mi hoy y todos mis mañanas</p>
+        </div>
+    </footer>
+
+    <!-- Modal para agregar entradas al diario -->
+    <div class="modal" id="entryModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal">&times;</span>
+            <h2>Nueva Entrada en el Diario</h2>
+            <form id="diaryForm">
+                <div class="form-group">
+                    <label for="entryDate">Fecha</label>
+                    <input type="date" id="entryDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="entryTitle">Título</label>
+                    <input type="text" id="entryTitle" placeholder="Ej: Nuestra primera cita" required>
+                </div>
+                <div class="form-group">
+                    <label for="entryContent">Contenido</label>
+                    <textarea id="entryContent" placeholder="Describe este momento especial..." required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Guardar Entrada</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Datos de ejemplo para la galería
+        const galleryData = [
+            {
+                img: "imagenes/Amargada.jpg",
+                title: "Mira esa carita",
+                description: "El día que todo comenzó"
+            },
+            {
+                img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                title: "Esa Sonrisa",
+                description: "Tu sonrisa ilumina mis días"
+            },
+            {
+                img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                title: "Momentos Especiales",
+                description: "Cada instante contigo es único"
+            },
+            {
+                img: "https://images.unsplash.com/photo-1494790108755-2616c113a1c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                title: "Tu Mirada",
+                description: "En tus ojos encuentro mi hogar"
+            },
+            {
+                img: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                title: "Juntos",
+                description: "Nada es imposible cuando estamos juntos"
+            },
+            {
+                img: "https://images.unsplash.com/photo-1545912452-8aea7e25a3d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                title: "Aventuras",
+                description: "Cada día es una nueva aventura contigo"
+            }
+        ];
+
+        // Datos de ejemplo para el diario
+        let diaryEntries = [
+            {
+                id: 1,
+                date: "2023-05-20",
+                title: "Nuestra primera cita",
+                content: "Recuerdo ese día como si fuera ayer. Estaba tan nervioso, pero desde el momento en que te vi, supe que eras especial. Tu sonrisa iluminó todo el lugar y supe que quería pasar más tiempo contigo."
+            },
+            {
+                id: 2,
+                date: "2023-07-15",
+                title: "El día que me enamoré",
+                content: "Fue durante esa caminata en el parque. Estábamos riendo sin parar, y de repente me miraste de una manera que hizo que mi corazón se acelerara. En ese momento supe que me había enamorado de ti."
+            },
+            {
+                id: 3,
+                date: "2023-09-10",
+                title: "Nuestro primer viaje juntos",
+                content: "Aunque llovió todo el fin de semana, fue uno de los mejores viajes de mi vida. Pasamos el tiempo acurrucados, viendo películas y riendo sin parar. Contigo, incluso los días grises son brillantes."
+            }
+        ];
+
+        // Elementos DOM
+        const galleryContainer = document.querySelector('.gallery');
+        const diaryEntriesContainer = document.getElementById('diaryEntries');
+        const addEntryBtn = document.getElementById('addEntryBtn');
+        const entryModal = document.getElementById('entryModal');
+        const closeModal = document.getElementById('closeModal');
+        const diaryForm = document.getElementById('diaryForm');
+        const exploreBtn = document.getElementById('exploreBtn');
+
+        // Inicializar la galería
+        function initGallery() {
+            galleryData.forEach(item => {
+                const galleryItem = document.createElement('div');
+                galleryItem.className = 'gallery-item';
+                
+                galleryItem.innerHTML = `
+                    <img src="${item.img}" alt="${item.title}" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3>${item.title}</h3>
+                        <p>${item.description}</p>
+                    </div>
+                `;
+                
+                galleryContainer.appendChild(galleryItem);
+            });
+        }
+
+        // Inicializar el diario
+        function initDiary() {
+            diaryEntriesContainer.innerHTML = '';
+            
+            // Ordenar entradas por fecha (más reciente primero)
+            diaryEntries.sort((a, b) => new Date(b.date) - new Date(a.date));
+            
+            diaryEntries.forEach(entry => {
+                const entryElement = document.createElement('div');
+                entryElement.className = 'diary-entry';
+                entryElement.dataset.id = entry.id;
+                
+                const formattedDate = formatDate(entry.date);
+                
+                entryElement.innerHTML = `
+                    <div class="entry-header">
+                        <span class="entry-date">${formattedDate}</span>
+                    </div>
+                    <h3 class="entry-title">${entry.title}</h3>
+                    <p class="entry-content">${entry.content}</p>
+                    <div class="entry-actions">
+                        <button class="entry-btn edit-btn">
+                            <i class="fas fa-edit"></i> Editar
+                        </button>
+                        <button class="entry-btn delete-btn">
+                            <i class="fas fa-trash"></i> Eliminar
+                        </button>
+                    </div>
+                `;
+                
+                diaryEntriesContainer.appendChild(entryElement);
+            });
+            
+            // Agregar event listeners a los botones de editar y eliminar
+            document.querySelectorAll('.edit-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const entryId = parseInt(this.closest('.diary-entry').dataset.id);
+                    editEntry(entryId);
+                });
+            });
+            
+            document.querySelectorAll('.delete-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const entryId = parseInt(this.closest('.diary-entry').dataset.id);
+                    deleteEntry(entryId);
+                });
+            });
+        }
+
+        // Formatear fecha
+        function formatDate(dateString) {
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            return new Date(dateString).toLocaleDateString('es-ES', options);
+        }
+
+        // Agregar nueva entrada
+        function addNewEntry(date, title, content) {
+            const newEntry = {
+                id: diaryEntries.length > 0 ? Math.max(...diaryEntries.map(e => e.id)) + 1 : 1,
+                date: date,
+                title: title,
+                content: content
+            };
+            
+            diaryEntries.push(newEntry);
+            initDiary();
+        }
+
+        // Editar entrada
+        function editEntry(entryId) {
+            const entry = diaryEntries.find(e => e.id === entryId);
+            if (entry) {
+                document.getElementById('entryDate').value = entry.date;
+                document.getElementById('entryTitle').value = entry.title;
+                document.getElementById('entryContent').value = entry.content;
+                
+                // Cambiar el formulario para editar
+                diaryForm.onsubmit = function(e) {
+                    e.preventDefault();
+                    
+                    const date = document.getElementById('entryDate').value;
+                    const title = document.getElementById('entryTitle').value;
+                    const content = document.getElementById('entryContent').value;
+                    
+                    // Actualizar la entrada
+                    entry.date = date;
+                    entry.title = title;
+                    entry.content = content;
+                    
+                    initDiary();
+                    closeEntryModal();
+                };
+                
+                openEntryModal();
+            }
+        }
+
+        // Eliminar entrada
+        function deleteEntry(entryId) {
+            if (confirm('¿Estás seguro de que quieres eliminar esta entrada?')) {
+                diaryEntries = diaryEntries.filter(e => e.id !== entryId);
+                initDiary();
+            }
+        }
+
+        // Abrir modal de entrada
+        function openEntryModal() {
+            entryModal.style.display = 'flex';
+        }
+
+        // Cerrar modal de entrada
+        function closeEntryModal() {
+            entryModal.style.display = 'none';
+            diaryForm.reset();
+            
+            // Restaurar el comportamiento por defecto del formulario
+            diaryForm.onsubmit = function(e) {
+                e.preventDefault();
+                
+                const date = document.getElementById('entryDate').value;
+                const title = document.getElementById('entryTitle').value;
+                const content = document.getElementById('entryContent').value;
+                
+                addNewEntry(date, title, content);
+                closeEntryModal();
+            };
+        }
+
+        // Navegación suave
+        function smoothScrollTo(targetId) {
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        // Event Listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            initGallery();
+            initDiary();
+            
+            // Botón explorar
+            exploreBtn.addEventListener('click', function() {
+                smoothScrollTo('gallery');
+            });
+            
+            // Modal de entrada
+            addEntryBtn.addEventListener('click', openEntryModal);
+            closeModal.addEventListener('click', closeEntryModal);
+            
+            // Cerrar modal al hacer clic fuera
+            window.addEventListener('click', function(e) {
+                if (e.target === entryModal) {
+                    closeEntryModal();
+                }
+            });
+            
+            // Formulario del diario
+            diaryForm.onsubmit = function(e) {
+                e.preventDefault();
+                
+                const date = document.getElementById('entryDate').value;
+                const title = document.getElementById('entryTitle').value;
+                const content = document.getElementById('entryContent').value;
+                
+                addNewEntry(date, title, content);
+                closeEntryModal();
+            };
+            
+            // Establecer fecha actual por defecto
+            document.getElementById('entryDate').valueAsDate = new Date();
+        });
+
+        // Efecto de confeti al hacer clic en el botón de corazón
+        exploreBtn.addEventListener('click', function() {
+            createHearts();
+        });
+
+        // Función para crear corazones flotantes
+        function createHearts() {
+            const heartsContainer = document.querySelector('.curls-container');
+            
+            for (let i = 0; i < 15; i++) {
+                const heart = document.createElement('div');
+                heart.innerHTML = '<i class="fas fa-heart"></i>';
+                heart.style.position = 'absolute';
+                heart.style.color = getRandomColor();
+                heart.style.fontSize = Math.random() * 20 + 10 + 'px';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.top = '100vh';
+                heart.style.opacity = Math.random() * 0.7 + 0.3;
+                heart.style.pointerEvents = 'none';
+                heart.style.zIndex = '9999';
+                
+                document.body.appendChild(heart);
+                
+                // Animación
+                const animation = heart.animate([
+                    { transform: 'translateY(0) rotate(0deg)', opacity: 1 },
+                    { transform: `translateY(-${Math.random() * 300 + 100}px) rotate(${Math.random() * 360}deg)`, opacity: 0 }
+                ], {
+                    duration: Math.random() * 3000 + 2000,
+                    easing: 'cubic-bezier(0.215, 0.61, 0.355, 1)'
+                });
+                
+                animation.onfinish = () => {
+                    heart.remove();
+                };
+            }
+        }
+
+        // Función para obtener colores aleatorios
+        function getRandomColor() {
+            const colors = ['#ffb6c1', '#db7093', '#e6be8a', '#ff69b4', '#ff1493'];
+            return colors[Math.floor(Math.random() * colors.length)];
+        }
+    </script>
+</body>
+</html>

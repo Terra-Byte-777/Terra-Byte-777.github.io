@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital | Transformando Negocios</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --phoenix-gold: #FF6B00;
+            --phoenix-orange: #FF8C00;
+            --phoenix-red: #FF4500;
+            --phoenix-yellow: #FFD700;
+            --phoenix-dark: #1A1A1A;
+            --phoenix-darker: #0A0A0A;
+            --phoenix-light: #FFF8F0;
+            --transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --glow: 0 0 30px rgba(255, 107, 0, 0.5);
+            --glow-strong: 0 0 60px rgba(255, 107, 0, 0.8);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--phoenix-darker) 0%, var(--phoenix-dark) 100%);
+            color: var(--phoenix-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Fondo animado de llamas */
+        .flames-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255, 107, 0, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 140, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(255, 69, 0, 0.08) 0%, transparent 50%);
+            z-index: -2;
+        }
+
+        .flame {
+            position: absolute;
+            background: linear-gradient(to top, transparent, var(--phoenix-orange), var(--phoenix-yellow));
+            border-radius: 50% 50% 20% 20%;
+            opacity: 0;
+            animation: riseFlame 8s infinite linear;
+        }
+
+        @keyframes riseFlame {
+            0% {
+                transform: translateY(100vh) scale(0.5) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.7;
+            }
+            90% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-100px) scale(1.2) rotate(180deg);
+                opacity: 0;
+            }
+        }
+
+        /* Partículas de fuego */
+        .fire-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .fire-particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--phoenix-yellow);
+            border-radius: 50%;
+            animation: fireFloat 6s infinite linear;
+            box-shadow: 0 0 10px var(--phoenix-yellow);
+        }
+
+        @keyframes fireFloat {
+            0% {
+                transform: translateY(100vh) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+            20% {
+                opacity: 1;
+            }
+            80% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) translateX(100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Header épico */
+        .phoenix-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 107, 0, 0.3);
+            padding: 20px 0;
+            transition: var(--transition);
+        }
+
+        .phoenix-header.scrolled {
+            padding: 15px 0;
+            box-shadow: 0 5px 40px rgba(255, 107, 0, 0.2);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Logo Fénix animado */
+        .phoenix-logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            position: relative;
+            width: 60px;
+            height: 60px;
+        }
+
+        .phoenix-symbol {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--phoenix-gold), var(--phoenix-red));
+            -webkit-mask: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50 10 L60 40 L90 40 L65 60 L75 90 L50 70 L25 90 L35 60 L10 40 L40 40 Z"/></svg>') center/contain no-repeat;
+            mask: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50 10 L60 40 L90 40 L65 60 L75 90 L50 70 L25 90 L35 60 L10 40 L40 40 Z"/></svg>') center/contain no-repeat;
+            animation: phoenixGlow 3s ease-in-out infinite alternate;
+            filter: drop-shadow(0 0 10px var(--phoenix-gold));
+        }
+
+        @keyframes phoenixGlow {
+            0% {
+                filter: drop-shadow(0 0 5px var(--phoenix-gold));
+                transform: scale(1);
+            }
+            100% {
+                filter: drop-shadow(0 0 20px var(--phoenix-red));
+                transform: scale(1.1);
+            }
+        }
+
+        .logo-text {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--phoenix-yellow), var(--phoenix-orange), var(--phoenix-red));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            position: relative;
+            padding: 10px 0;
+        }
+
+        .nav-links a:hover {
+            color: var(--phoenix-yellow);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--phoenix-yellow), var(--phoenix-orange));
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section Épica */
+        .phoenix-hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 0 40px;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .hero-text {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 107, 0, 0.15);
+            border: 1px solid rgba(255, 107, 0, 0.4);
+            color: var(--phoenix-yellow);
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+            animation: pulseFire 2s infinite;
+            backdrop-filter: blur(10px);
+        }
+
+        @keyframes pulseFire {
+            0%, 100% { 
+                box-shadow: 0 0 20px rgba(255, 107, 0, 0.3);
+                transform: scale(1);
+            }
+            50% { 
+                box-shadow: 0 0 40px rgba(255, 107, 0, 0.6);
+                transform: scale(1.05);
+            }
+        }
+
+        .hero-title {
+            font-size: 4.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, var(--phoenix-yellow), var(--phoenix-orange), var(--phoenix-red));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 50px rgba(255, 107, 0, 0.5);
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 40px;
+            line-height: 1.6;
+            max-width: 500px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .btn {
+            padding: 18px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--phoenix-orange), var(--phoenix-red));
+            color: white;
+            box-shadow: var(--glow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--glow-strong);
+            background: linear-gradient(135deg, var(--phoenix-red), var(--phoenix-orange));
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--phoenix-yellow);
+            border: 2px solid var(--phoenix-yellow);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 215, 0, 0.1);
+            transform: translateY(-5px);
+            box-shadow: var(--glow);
+        }
+
+        /* Stats con efecto fuego */
+        .hero-stats {
+            display: flex;
+            gap: 50px;
+        }
+
+        .stat {
+            text-align: center;
+            position: relative;
+        }
+
+        .stat::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--phoenix-orange), transparent);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--phoenix-yellow), var(--phoenix-orange));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+            margin-bottom: 5px;
+            text-shadow: 0 0 20px rgba(255, 107, 0, 0.5);
+        }
+
+        .stat-label {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Visual del Fénix animado */
+        .phoenix-visual {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .phoenix-animation {
+            position: relative;
+            width: 400px;
+            height: 400px;
+        }
+
+        .phoenix-body {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, var(--phoenix-red) 0%, var(--phoenix-orange) 30%, transparent 70%);
+            border-radius: 50%;
+            animation: phoenixPulse 4s ease-in-out infinite;
+            filter: blur(10px);
+        }
+
+        @keyframes phoenixPulse {
+            0%, 100% { 
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0.8;
+            }
+            50% { 
+                transform: translate(-50%, -50%) scale(1.2);
+                opacity: 1;
+            }
+        }
+
+        .phoenix-wing {
+            position: absolute;
+            width: 150px;
+            height: 80px;
+            background: linear-gradient(45deg, transparent, var(--phoenix-yellow), var(--phoenix-orange));
+            border-radius: 50%;
+            filter: blur(15px);
+            animation: wingsFlap 3s ease-in-out infinite;
+        }
+
+        .wing-left {
+            top: 30%;
+            right: 60%;
+            transform: rotate(-30deg);
+        }
+
+        .wing-right {
+            top: 30%;
+            left: 60%;
+            transform: rotate(30deg);
+        }
+
+        @keyframes wingsFlap {
+            0%, 100% { 
+                transform: rotate(-30deg) scale(1);
+            }
+            50% { 
+                transform: rotate(-40deg) scale(1.1);
+            }
+        }
+
+        .wing-right {
+            animation: wingsFlapRight 3s ease-in-out infinite;
+        }
+
+        @keyframes wingsFlapRight {
+            0%, 100% { 
+                transform: rotate(30deg) scale(1);
+            }
+            50% { 
+                transform: rotate(40deg) scale(1.1);
+            }
+        }
+
+        /* Efecto de plumas de fuego */
+        .fire-feathers {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .feather {
+            position: absolute;
+            width: 20px;
+            height: 60px;
+            background: linear-gradient(to bottom, transparent, var(--phoenix-yellow), var(--phoenix-orange));
+            border-radius: 50% 50% 0 0;
+            opacity: 0;
+            animation: featherFall 6s infinite linear;
+        }
+
+        @keyframes featherFall {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(500px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Scroll Indicator con forma de llama */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--phoenix-yellow);
+            text-align: center;
+            animation: fireBounce 2s infinite;
+        }
+
+        @keyframes fireBounce {
+            0%, 20%, 50%, 80%, 100% { 
+                transform: translateX(-50%) translateY(0); 
+            }
+            40% { 
+                transform: translateX(-50%) translateY(-10px); 
+            }
+            60% { 
+                transform: translateX(-50%) translateY(-5px); 
+            }
+        }
+
+        .flame-arrow {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px var(--phoenix-orange);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 50px;
+                text-align: center;
+            }
+            
+            .hero-title {
+                font-size: 3.5rem;
+            }
+            
+            .hero-stats {
+                justify-content: center;
+            }
+            
+            .phoenix-animation {
+                width: 300px;
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0 20px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            
+            .phoenix-hero {
+                padding: 0 20px;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .hero-stats {
+                gap: 30px;
+                flex-wrap: wrap;
+            }
+            
+            .phoenix-animation {
+                width: 250px;
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Fondo animado de llamas -->
+    <div class="flames-background" id="flamesBackground"></div>
+    
+    <!-- Partículas de fuego -->
+    <div class="fire-particles" id="fireParticles"></div>
+
+    <!-- Header -->
+    <header class="phoenix-header" id="header">
+        <div class="nav-container">
+            <a href="#" class="phoenix-logo">
+                <div class="logo-icon">
+                    <div class="phoenix-symbol"></div>
+                </div>
+                <div class="logo-text">Digital</div>
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#portafolio">Portafolio</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="phoenix-hero" id="inicio">
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-badge">
+                    <i class="fas fa-fire"></i> Transformación Digital
+                </div>
+                
+                <h1 class="hero-title">
+                    Renace Tu Negocio
+                    <span style="display: block; background: linear-gradient(135deg, var(--phoenix-yellow), var(--phoenix-red)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+                        Como El Fénix
+                    </span>
+                </h1>
+                
+                <p class="hero-subtitle">
+                    Impulsamos tu empresa hacia la era digital con soluciones innovadoras 
+                    que harán renacer tu negocio más fuerte y competitivo que nunca.
+                </p>
+                
+                <div class="cta-buttons">
+                    <a href="#contacto" class="btn btn-primary">
+                        <i class="fas fa-play"></i> Comenzar Ahora
+                    </a>
+                    <a href="#servicios" class="btn btn-secondary">
+                        <i class="fas fa-eye"></i> Ver Servicios
+                    </a>
+                </div>
+                
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number" data-target="150">0</span>
+                        <span class="stat-label">Clientes Transformados</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" data-target="5">0</span>
+                        <span class="stat-label">Años de Experiencia</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" data-target="99">0</span>
+                        <span class="stat-label">Satisfacción Garantizada</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="phoenix-visual">
+                <div class="phoenix-animation">
+                    <div class="phoenix-body"></div>
+                    <div class="phoenix-wing wing-left"></div>
+                    <div class="phoenix-wing wing-right"></div>
+                    <div class="fire-feathers" id="fireFeathers"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="scroll-indicator">
+            <div class="flame-arrow">▼</div>
+            <div>Descubre el Poder</div>
+        </div>
+    </section>
+
+    <script>
+        // Crear fondo de llamas animado
+        function createFlames() {
+            const background = document.getElementById('flamesBackground');
+            
+            for (let i = 0; i < 25; i++) {
+                const flame = document.createElement('div');
+                flame.className = 'flame';
+                flame.style.left = Math.random() * 100 + 'vw';
+                flame.style.width = (Math.random() * 100 + 50) + 'px';
+                flame.style.height = (Math.random() * 150 + 100) + 'px';
+                flame.style.animationDelay = Math.random() * 8 + 's';
+                background.appendChild(flame);
+            }
+        }
+
+        // Crear partículas de fuego
+        function createFireParticles() {
+            const particlesContainer = document.getElementById('fireParticles');
+            
+            for (let i = 0; i < 40; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'fire-particle';
+                particle.style.left = Math.random() * 100 + 'vw';
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                particle.style.width = (Math.random() * 3 + 2) + 'px';
+                particle.style.height = particle.style.width;
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Crear plumas de fuego
+        function createFireFeathers() {
+            const feathersContainer = document.getElementById('fireFeathers');
+            
+            for (let i = 0; i < 15; i++) {
+                const feather = document.createElement('div');
+                feather.className = 'feather';
+                feather.style.left = Math.random() * 100 + '%';
+                feather.style.animationDelay = Math.random() * 6 + 's';
+                feather.style.transform = `rotate(${Math.random() * 360}deg)`;
+                feathersContainer.appendChild(feather);
+            }
+        }
+
+        // Animación de números de estadísticas
+        function animateStats() {
+            const statNumbers = document.querySelectorAll('.stat-number');
+            
+            statNumbers.forEach(stat => {
+                const target = parseInt(stat.getAttribute('data-target'));
+                let current = 0;
+                const increment = target / 30;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        stat.textContent = target + '%';
+                        clearInterval(timer);
+                    } else {
+                        stat.textContent = Math.floor(current);
+                    }
+                }, 50);
+            });
+        }
+
+        // Efecto de header al hacer scroll
+        function handleHeaderScroll() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        }
+
+        // Inicialización
+        document.addEventListener('DOMContentLoaded', function() {
+            createFlames();
+            createFireParticles();
+            createFireFeathers();
+            
+            // Animar stats cuando son visibles
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateStats();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            });
+            
+            const statsSection = document.querySelector('.hero-stats');
+            if (statsSection) {
+                observer.observe(statsSection);
+            }
+            
+            // Header scroll effect
+            window.addEventListener('scroll', handleHeaderScroll);
+            
+            // Efectos hover mejorados para botones
+            document.querySelectorAll('.btn').forEach(btn => {
+                btn.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px) scale(1.05)';
+                });
+                
+                btn.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+
+            // Efecto de sonido mental al hacer hover en botones
+            document.querySelectorAll('.btn-primary').forEach(btn => {
+                btn.addEventListener('mouseenter', function() {
+                    this.style.background = 'linear-gradient(135deg, var(--phoenix-red), var(--phoenix-orange))';
+                });
+                
+                btn.addEventListener('mouseleave', function() {
+                    this.style.background = 'linear-gradient(135deg, var(--phoenix-orange), var(--phoenix-red))';
+                });
+            });
+        });
+
+        // Efecto de respiración para el fénix
+        function phoenixBreath() {
+            const body = document.querySelector('.phoenix-body');
+            setInterval(() => {
+                body.style.filter = `blur(${10 + Math.random() * 5}px)`;
+            }, 2000);
+        }
+
+        // Iniciar efecto de respiración
+        setTimeout(phoenixBreath, 1000);
+    </script>
+</body>
+</html>

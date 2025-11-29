@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Don Salchi Papas|Las Mejores Salchipapas del Mundo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fredoka+One&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --rojo-principal: #e63946;
+            --amarillo: #ffbe0b;
+            --naranja: #fb5607;
+            --rojo-oscuro: #d00000;
+            --crema: #fff1e6;
+            --gris-oscuro: #333;
+            --blanco: #fff;
+            --sombra: 0 5px 15px rgba(0,0,0,0.1);
+            --sombra-intensa: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--blanco);
+            color: var(--gris-oscuro);
+            overflow-x: hidden;
+        }
+
+        /* Header y Navegación */
+        header {
+            background-color: var(--blanco);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: var(--sombra);
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            padding: 10px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--rojo-principal) 0%, var(--naranja) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            box-shadow: var(--sombra);
+        }
+
+        .logo-img i {
+            font-size: 24px;
+            color: var(--blanco);
+        }
+
+        .logo-text {
+            font-family: 'Fredoka One', cursive;
+            color: var(--rojo-principal);
+            font-size: 28px;
+            letter-spacing: 1px;
+        }
+
+        .logo-text span {
+            color: var(--naranja);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            color: var(--gris-oscuro);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 5px 10px;
+            border-radius: 20px;
+            position: relative;
+        }
+
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--rojo-principal);
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--rojo-principal);
+        }
+
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background-color: var(--rojo-principal);
+            color: var(--blanco) !important;
+            padding: 8px 20px !important;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            background-color: var(--naranja) !important;
+            transform: translateY(-3px);
+        }
+
+        .nav-cta:after {
+            display: none;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            color: var(--rojo-principal);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--blanco);
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+            animation: fadeIn 1.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero h1 {
+            font-family: 'Fredoka One', cursive;
+            font-size: 4rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--rojo-principal);
+            color: var(--blanco);
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: var(--sombra);
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn:hover {
+            background-color: var(--naranja);
+            transform: translateY(-5px);
+            box-shadow: var(--sombra-intensa);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid var(--blanco);
+            margin-left: 15px;
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--blanco);
+            color: var(--rojo-principal);
+        }
+
+        /* Sección de Especialidades */
+        .specialties {
+            padding: 100px 0;
+            background-color: var(--crema);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-family: 'Fredoka One', cursive;
+            font-size: 2.8rem;
+            color: var(--rojo-principal);
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: var(--gris-oscuro);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        .specialties-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .specialty-card {
+            background-color: var(--blanco);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--sombra);
+            transition: all 0.4s ease;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .specialty-card:hover {
+            transform: translateY(-15px);
+            box-shadow: var(--sombra-intensa);
+        }
+
+        .specialty-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--rojo-principal) 0%, var(--naranja) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .specialty-icon i {
+            font-size: 32px;
+            color: var(--blanco);
+        }
+
+        .specialty-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--rojo-principal);
+        }
+
+        .specialty-card p {
+            color: var(--gris-oscuro);
+            line-height: 1.6;
+        }
+
+        /* Galería */
+        .gallery-section {
+            padding: 100px 0;
+            background-color: var(--blanco);
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--sombra);
+            transition: all 0.5s ease;
+            height: 250px;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            padding: 20px;
+            color: var(--blanco);
+            transform: translateY(100%);
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        .gallery-overlay h3 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+
+        .gallery-overlay p {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-weight: 700;
+            color: var(--amarillo);
+            font-size: 1.2rem;
+        }
+
+        /* Menú */
+        .menu-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--rojo-principal) 0%, var(--naranja) 100%);
+            color: var(--blanco);
+        }
+
+        .menu-section .section-title h2 {
+            color: var(--blanco);
+        }
+
+        .menu-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .menu-category {
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: var(--sombra);
+        }
+
+        .menu-category h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            text-align: center;
+            color: var(--amarillo);
+            font-family: 'Fredoka One', cursive;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+
+        .item-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .item-info p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .item-price {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--amarillo);
+        }
+
+        /* Contacto */
+        .contact-section {
+            padding: 100px 0;
+            background-color: var(--blanco);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .contact-info {
+            padding-right: 30px;
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            color: var(--rojo-principal);
+            margin-bottom: 20px;
+            font-family: 'Fredoka One', cursive;
+        }
+
+        .contact-info p {
+            margin-bottom: 30px;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+
+        .whatsapp-animation {
+            display: flex;
+            align-items: center;
+            background-color: var(--crema);
+            padding: 15px 25px;
+            border-radius: 50px;
+            margin-bottom: 30px;
+            animation: pulse 2s infinite;
+            box-shadow: var(--sombra);
+            max-width: 300px;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+
+        .whatsapp-animation i {
+            font-size: 28px;
+            color: #25D366;
+            margin-right: 15px;
+        }
+
+        .whatsapp-animation span {
+            font-weight: 600;
+            color: var(--gris-oscuro);
+            font-size: 1.1rem;
+        }
+
+        .product-selector {
+            margin-bottom: 30px;
+        }
+
+        .product-selector label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--rojo-principal);
+            font-size: 1.1rem;
+        }
+
+        .product-selector select {
+            width: 100%;
+            max-width: 300px;
+            padding: 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 1rem;
+            background-color: var(--blanco);
+            transition: border 0.3s ease;
+        }
+
+        .product-selector select:focus {
+            border-color: var(--rojo-principal);
+            outline: none;
+        }
+
+        .contact-form {
+            background-color: var(--crema);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: var(--sombra-intensa);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--gris-oscuro);
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--rojo-principal);
+            outline: none;
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--gris-oscuro);
+            color: var(--blanco);
+            padding: 70px 0 20px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo-img {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--rojo-principal) 0%, var(--naranja) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+        }
+
+        .footer-logo-img i {
+            font-size: 20px;
+            color: var(--blanco);
+        }
+
+        .footer-logo-text {
+            font-family: 'Fredoka One', cursive;
+            font-size: 24px;
+            color: var(--blanco);
+        }
+
+        .footer-logo-text span {
+            color: var(--amarillo);
+        }
+
+        .footer-about p {
+            line-height: 1.6;
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--blanco);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background-color: var(--rojo-principal);
+            transform: translateY(-3px);
+        }
+
+        .footer-links h3,
+        .footer-contact h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--amarillo);
+            font-family: 'Fredoka One', cursive;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links ul li a {
+            color: var(--blanco);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            opacity: 0.8;
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--amarillo);
+            opacity: 1;
+        }
+
+        .footer-contact p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            opacity: 0.8;
+        }
+
+        .footer-contact p i {
+            margin-right: 10px;
+            color: var(--amarillo);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info {
+                padding-right: 0;
+            }
+            
+            nav ul {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .gallery {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+
+            .btn {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+
+            .btn-secondary {
+                margin-left: 0;
+                margin-top: 15px;
+                display: block;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .specialties-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .logo-text {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container nav-container">
+            <div class="logo">
+                <div class="logo-img">
+                    <i class="fas fa-hotdog"></i>
+                </div>
+                <div class="logo-text">Don <span>Salchi Papa</span></div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#especialidades">Especialidades</a></li>
+                    <li><a href="#galeria">Galería</a></li>
+                    <li><a href="#menu">Menú</a></li>
+                    <li><a href="#contacto" class="nav-cta">Ordenar Ahora</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <h1>LAS MEJORES SALCHIPAPAS DEL MUNDO</h1>
+            <p>Descubre nuestra increíble variedad de salchipapas gourmet con ingredientes premium y sabores únicos que te harán volver por más.</p>
+            <a href="#menu" class="btn">Ver Menú Completo</a>
+            <a href="#contacto" class="btn btn-secondary">Ordenar Ahora</a>
+        </div>
+    </section>
+
+    <!-- Especialidades -->
+    <section class="specialties" id="especialidades">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nuestras Especialidades</h2>
+                <p>Descubre lo que hace que nuestras salchipapas sean únicas y especiales</p>
+            </div>
+            <div class="specialties-grid">
+                <div class="specialty-card">
+                    <div class="specialty-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h3>Ingredientes Premium</h3>
+                    <p>Utilizamos salchichas de alta calidad y papas seleccionadas para garantizar el mejor sabor en cada bocado.</p>
+                </div>
+                <div class="specialty-card">
+                    <div class="specialty-icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <h3>Salsas Artesanales</h3>
+                    <p>Nuestras salsas son preparadas diariamente con recetas exclusivas que realzan el sabor de tus salchipapas.</p>
+                </div>
+                <div class="specialty-card">
+                    <div class="specialty-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Opciones Saludables</h3>
+                    <p>Ofrecemos alternativas con papas horneadas y salchichas bajas en grasa para quienes cuidan su alimentación.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galería -->
+    <section class="gallery-section" id="galeria">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nuestra Galería</h2>
+                <p>Un vistazo a nuestras deliciosas creaciones que harán agua tu boca</p>
+            </div>
+            <div class="gallery">
+                <!-- Producto 1 -->
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1555072956-7758af92820b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Salchipapas Clásicas" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3>Salchipapas Clásicas</h3>
+                        <p>Nuestra especialidad de la casa</p>
+                        <div class="price">$8.99</div>
+                    </div>
+                </div>
+                <!-- Producto 2 -->
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Super Salchi Deluxe" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3>Super Salchi Deluxe</h3>
+                        <p>Con toppings premium y salsas especiales</p>
+                        <div class="price">$12.99</div>
+                    </div>
+                </div>
+                <!-- Producto 3 -->
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Salchi Mexicana" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3>Salchi Mexicana</h3>
+                        <p>Con guacamole, jalapeños y crema</p>
+                        <div class="price">$10.99</div>
+                    </div>
+                </div>
+                <!-- Producto 4 -->
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1561758033-d89a9ad46330?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Salchi BBQ" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3>Salchi BBQ</h3>
+                        <p>Con nuestra salsa barbacoa casera</p>
+                        <div class="price">$9.99</div>
+                    </div>
+                </div>
+                <!-- Producto 5 -->
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Salchi Hawaiana" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3>Salchi Hawaiana</h3>
+                        <p>Con piña, jamón y queso derretido</p>
+                        <div class="price">$11.99</div>
+                    </div>
+                </div>
+                <!-- Producto 6 -->
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Salchi Vegetariana" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3>Salchi Vegetariana</h3>
+                        <p>Con salchichas de soya y vegetales frescos</p>
+                        <div class="price">$9.49</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menú -->
+    <section class="menu-section" id="menu">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nuestro Menú</h2>
+                <p>Una amplia variedad de opciones para todos los gustos</p>
+            </div>
+            <div class="menu-container">
+                <div class="menu-category">
+                    <h3>Salchipapas Clásicas</h3>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <h4>Salchi Regular</h4>
+                            <p>Papas fritas con salchichas y salsas básicas</p>
+                        </div>
+                        <div class="item-price">$6.99</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <h4>Salchi Especial</h4>
+                            <p>Con huevo, maíz y crema</p>
+                        </div>
+                        <div class="item-price">$8.99</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <h4>Salchi Super</h4>
+                            <p>Con chorizo, tocineta y queso derretido</p>
+                        </div>
+                        <div class="item-price">$10.99</div>
+                    </div>
+                </div>
+                <div class="menu-category">
+                    <h3>Especialidades de la Casa</h3>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <h4>Super Salchi Deluxe</h4>
+                            <p>Nuestra especialidad con todos los toppings</p>
+                        </div>
+                        <div class="item-price">$12.99</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <h4>Salchi Mexicana</h4>
+                            <p>Con guacamole, jalapeños y crema agria</p>
+                        </div>
+                        <div class="item-price">$10.99</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <h4>Salchi BBQ</h4>
+                            <p>Con nuestra salsa barbacoa casera y cebolla crispy</p>
+                        </div>
+                        <div class="item-price">$9.99</div>
+                    </div>
+                </div>
+                <div class="menu-category">
+                    <h3>Opciones Especiales</h3>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <h4>Salchi Vegetariana</h4>
+                            <p>Con salchichas de soya y vegetales frescos</p>
+                        </div>
+                        <div class="item-price">$9.49</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <h4>Salchi Light</h4>
+                            <p>Papas horneadas con salchichas bajas en grasa</p>
+                        </div>
+                        <div class="item-price">$8.99</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <h4>Salchi Picante</h4>
+                            <p>Para valientes, con nuestro chile especial</p>
+                        </div>
+                        <div class="item-price">$9.99</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section class="contact-section" id="contacto">
+        <div class="container">
+            <div class="section-title">
+                <h2>Realiza tu Pedido</h2>
+                <p>Selecciona tu salchipapa favorita y contáctanos para realizar tu pedido</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>¡Ordena Ahora!</h3>
+                    <p>Realiza tu pedido directamente por WhatsApp o completa el formulario y te contactaremos a la brevedad. Ofrecemos delivery gratuito en compras mayores a $15.</p>
+                    
+                    <div class="whatsapp-animation">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>+1 234 567 8900</span>
+                    </div>
+                    
+                    <div class="product-selector">
+                        <label for="product">Selecciona tu salchipapa favorita:</label>
+                        <select id="product">
+                            <option value="">-- Elige una opción --</option>
+                            <option value="regular">Salchi Regular - $6.99</option>
+                            <option value="especial">Salchi Especial - $8.99</option>
+                            <option value="super">Salchi Super - $10.99</option>
+                            <option value="deluxe">Super Salchi Deluxe - $12.99</option>
+                            <option value="mexicana">Salchi Mexicana - $10.99</option>
+                            <option value="bbq">Salchi BBQ - $9.99</option>
+                            <option value="vegetariana">Salchi Vegetariana - $9.49</option>
+                            <option value="light">Salchi Light - $8.99</option>
+                            <option value="picante">Salchi Picante - $9.99</option>
+                        </select>
+                    </div>
+                    
+                    <a href="https://wa.me/12345678900?text=Hola,%20me%20interesa%20ordenar%20una%20salchipapa" class="btn" target="_blank">Ordenar por WhatsApp</a>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Nombre completo</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Correo electrónico</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Teléfono</label>
+                            <input type="tel" id="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="product-form">Selecciona tu salchipapa</label>
+                            <select id="product-form" required>
+                                <option value="">-- Elige una opción --</option>
+                                <option value="regular">Salchi Regular - $6.99</option>
+                                <option value="especial">Salchi Especial - $8.99</option>
+                                <option value="super">Salchi Super - $10.99</option>
+                                <option value="deluxe">Super Salchi Deluxe - $12.99</option>
+                                <option value="mexicana">Salchi Mexicana - $10.99</option>
+                                <option value="bbq">Salchi BBQ - $9.99</option>
+                                <option value="vegetariana">Salchi Vegetariana - $9.49</option>
+                                <option value="light">Salchi Light - $8.99</option>
+                                <option value="picante">Salchi Picante - $9.99</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Instrucciones especiales (opcional)</label>
+                            <textarea id="message" placeholder="Ej: Sin cebolla, extra salsa, etc."></textarea>
+                        </div>
+                        <button type="submit" class="btn">Enviar Pedido</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <div class="footer-logo-img">
+                            <i class="fas fa-hotdog"></i>
+                        </div>
+                        <div class="footer-logo-text">Super <span>Salchi</span></div>
+                    </div>
+                    <p>Las salchipapas más deliciosas y creativas de la ciudad. Utilizamos ingredientes de la más alta calidad para brindarte una experiencia única.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#especialidades">Especialidades</a></li>
+                        <li><a href="#galeria">Galería</a></li>
+                        <li><a href="#menu">Menú</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contacto</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Av. Comida Rápida 456, Ciudad Sabrosa</p>
+                    <p><i class="fas fa-phone"></i> +1 234 567 8900</p>
+                    <p><i class="fas fa-envelope"></i> info@supersalchi.com</p>
+                    <p><i class="fas fa-clock"></i> Lun - Dom: 11:00 - 23:00</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Super Salchi. Todos los derechos reservados. | Diseñado con <i class="fas fa-heart" style="color: var(--rojo-principal);"></i> para amantes de las salchipapas</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const product = document.getElementById('product-form').value;
+            const name = document.getElementById('name').value;
+            
+            if(product) {
+                alert(`¡Gracias ${name}! Hemos recibido tu pedido. Te contactaremos pronto para confirmar.`);
+            } else {
+                alert(`¡Gracias ${name}! Hemos recibido tu mensaje. Te contactaremos pronto.`);
+            }
+            
+            this.reset();
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            const nav = document.querySelector('nav ul');
+            nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+        });
+    </script>
+</body>
+</html>

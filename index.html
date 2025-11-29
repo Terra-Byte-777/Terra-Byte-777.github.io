@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio Profesional</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --negro-elegante: #1a1a1a;
+            --blanco: #ffffff;
+            --gris-claro: #f5f5f5;
+            --gris-medio: #e0e0e0;
+            --gris-oscuro: #333333;
+            --dorado: #d4af37;
+            --azul-profesional: #2c3e50;
+            --sombra: 0 5px 15px rgba(0,0,0,0.1);
+            --sombra-intensa: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--blanco);
+            color: var(--gris-oscuro);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--negro-elegante);
+            color: var(--blanco);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: var(--sombra);
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            padding: 15px 0;
+            background-color: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--blanco);
+        }
+
+        .logo span {
+            color: var(--dorado);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            color: var(--blanco);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--dorado);
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--dorado);
+        }
+
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            color: var(--blanco);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-menu-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 180px 0 100px;
+            background: linear-gradient(135deg, var(--negro-elegante) 0%, var(--azul-profesional) 100%);
+            color: var(--blanco);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(212,175,55,0.05)" points="0,1000 1000,0 1000,1000"/></svg>');
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .profile-container {
+            margin-bottom: 40px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--dorado);
+            box-shadow: var(--sombra-intensa);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4); }
+            70% { box-shadow: 0 0 0 20px rgba(212, 175, 55, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+        }
+
+        .profile-img:hover {
+            transform: scale(1.05) rotate(5deg);
+            box-shadow: 0 0 0 10px rgba(212, 175, 55, 0.3);
+        }
+
+        .profile-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(212, 175, 55, 0.8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            transform: scale(0.8);
+        }
+
+        .profile-container:hover .profile-overlay {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .profile-overlay i {
+            font-size: 40px;
+            color: var(--negro-elegante);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-overlay:hover i {
+            transform: scale(1.2);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            animation: slideInUp 1s ease;
+        }
+
+        .hero h3 {
+            margin-bottom: 15px;
+            animation: slideInUp 1s ease 0.2s both;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: slideInUp 1s ease 0.4s both;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            animation: slideInUp 1s ease 0.6s both;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--dorado);
+            color: var(--negro-elegante);
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: var(--sombra);
+            border: 2px solid var(--dorado);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--dorado);
+            transform: translateY(-3px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--dorado);
+            border: 2px solid var(--dorado);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--dorado);
+            color: var(--negro-elegante);
+        }
+
+        /* Sección de Contacto WhatsApp */
+        .whatsapp-section {
+            padding: 100px 0;
+            background-color: var(--gris-claro);
+            text-align: center;
+            display: none;
+        }
+
+        .whatsapp-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .whatsapp-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: var(--blanco);
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: var(--sombra-intensa);
+            transform: translateY(50px);
+            opacity: 0;
+            transition: all 0.5s ease;
+        }
+
+        .whatsapp-section.active .whatsapp-container {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .whatsapp-icon {
+            font-size: 80px;
+            color: #25D366;
+            margin-bottom: 20px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        .whatsapp-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--azul-profesional);
+        }
+
+        .whatsapp-section p {
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        .whatsapp-number {
+            display: inline-flex;
+            align-items: center;
+            background-color: #25D366;
+            color: var(--blanco);
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: var(--sombra);
+            margin-bottom: 30px;
+        }
+
+        .whatsapp-number i {
+            margin-right: 10px;
+            font-size: 24px;
+        }
+
+        .whatsapp-number:hover {
+            background-color: #128C7E;
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: var(--sombra-intensa);
+        }
+
+        /* Sección de Habilidades */
+        .skills-section {
+            padding: 100px 0;
+            background-color: var(--blanco);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--azul-profesional);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 3px;
+            background-color: var(--dorado);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: expandWidth 2s ease;
+        }
+
+        @keyframes expandWidth {
+            from { width: 0; }
+            to { width: 70px; }
+        }
+
+        .section-title p {
+            max-width: 600px;
+            margin: 0 auto;
+            color: var(--gris-oscuro);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-category {
+            background-color: var(--gris-claro);
+            padding: 40px 30px;
+            border-radius: 10px;
+            box-shadow: var(--sombra);
+            transition: all 0.3s ease;
+            transform: translateY(50px);
+            opacity: 0;
+        }
+
+        .skill-category.animate {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: var(--sombra-intensa);
+        }
+
+        .skill-category h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--azul-profesional);
+            display: flex;
+            align-items: center;
+        }
+
+        .skill-category h3 i {
+            margin-right: 10px;
+            color: var(--dorado);
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-list li:hover {
+            transform: translateX(10px);
+        }
+
+        .skill-list li i {
+            color: var(--dorado);
+            margin-right: 10px;
+        }
+
+        /* Sección de Proyectos - CORREGIDA */
+        .projects-section {
+            padding: 100px 0;
+            background-color: var(--gris-claro);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background-color: var(--blanco);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--sombra);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%; /* Esto fuerza que todas tengan la misma altura */
+            transform: translateY(50px);
+            opacity: 0;
+        }
+
+        .project-card.animate {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: var(--sombra-intensa);
+        }
+
+        .project-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover .project-img {
+            transform: scale(1.1);
+        }
+
+        .project-content {
+            padding: 25px;
+            flex: 1; /* Esto hace que el contenido ocupe el espacio restante */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--azul-profesional);
+        }
+
+        .project-content p {
+            margin-bottom: 20px;
+            color: var(--gris-oscuro);
+            flex: 1; /* Esto hace que los párrafos ocupen el espacio disponible */
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .project-tag {
+            background-color: var(--gris-claro);
+            color: var(--gris-oscuro);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .project-tag:hover {
+            background-color: var(--dorado);
+            color: var(--blanco);
+            transform: scale(1.1);
+        }
+
+        .project-links {
+            display: flex;
+            gap: 15px;
+            margin-top: auto; /* Esto empuja los enlaces hacia abajo */
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--azul-profesional);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 5px;
+            border: 1px solid transparent;
+        }
+
+        .project-link:hover {
+            color: var(--dorado);
+            background-color: var(--gris-claro);
+            border-color: var(--dorado);
+            transform: translateY(-2px);
+        }
+
+        .project-link i {
+            margin-right: 5px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--negro-elegante);
+            color: var(--blanco);
+            padding: 50px 0 20px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-about h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--dorado);
+        }
+
+        .footer-about p {
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--blanco);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background-color: var(--dorado);
+            transform: translateY(-3px) scale(1.1);
+        }
+
+        .footer-links h3,
+        .footer-contact h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--dorado);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links ul li a {
+            color: var(--blanco);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            opacity: 0.8;
+            position: relative;
+            padding-left: 0;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--dorado);
+            opacity: 1;
+            padding-left: 10px;
+        }
+
+        .footer-links ul li a::before {
+            content: '▸';
+            position: absolute;
+            left: -15px;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links ul li a:hover::before {
+            opacity: 1;
+            left: -5px;
+        }
+
+        .footer-contact p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+        }
+
+        .footer-contact p:hover {
+            opacity: 1;
+            transform: translateX(5px);
+        }
+
+        .footer-contact p i {
+            margin-right: 10px;
+            color: var(--dorado);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            opacity: 0.7;
+        }
+
+        /* Efectos de aparición al hacer scroll */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--negro-elegante);
+                flex-direction: column;
+                padding: 20px 0;
+                box-shadow: var(--sombra);
+                transform: translateY(-20px);
+                opacity: 0;
+                transition: all 0.3s ease;
+            }
+            
+            nav ul.active {
+                display: flex;
+                transform: translateY(0);
+                opacity: 1;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+                text-align: center;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 150px 0 80px;
+            }
+            
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 250px;
+                text-align: center;
+            }
+            
+            .profile-img {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .whatsapp-container {
+                padding: 30px 20px;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+
+            .project-links {
+                flex-direction: column;
+            }
+
+            .project-link {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container nav-container">
+            <div class="logo">Queve2<span>Portafolio</span></div>
+            <nav>
+                <ul id="nav-menu">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#habilidades">Habilidades</a></li>
+                    <li><a href="#proyectos">Proyectos</a></li>
+                    <li><a href="#" id="contact-link">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <div class="profile-container">
+                <img src="imagenes/Lester.png" alt="Foto de perfil" class="profile-img" id="profile-img">
+                <div class="profile-overlay" id="profile-overlay">
+                    <i class="fas fa-comment"></i>
+                </div>
+            </div>
+            <h1>Hola, soy <span style="color: var(--dorado)">Queve2</span></h1>
+            <h3><span style="color: var(--dorado)">Has Clic</span> En la Foto</h3>
+            <p>Desarrollador Frontend que transforma ideas en interfaces web funcionales y atractivas. Me apasiona crear experiencias digitales que no solo se vean bien, sino que funcionen mejor.</p>
+            <div class="hero-btns">
+                <a href="#proyectos" class="btn">Ver Proyectos</a>
+                <a href="#" class="btn btn-outline" id="contact-btn">Contáctame</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Contacto WhatsApp -->
+    <section class="whatsapp-section" id="whatsapp-section">
+        <div class="container">
+            <div class="whatsapp-container">
+                <i class="fab fa-whatsapp whatsapp-icon"></i>
+                <h2>¡Escribeme!</h2>
+                <p>Estoy disponible para nuevos proyectos y oportunidades. Contáctame directamente por WhatsApp y te responderé a la brevedad.</p>
+                <a href="https://wa.me/5351251806?text=Hola,%20me%20interesa%20contactarte%20para%20un%20proyecto" class="whatsapp-number" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                    +53 51251806
+                </a>
+                <p>O si prefieres, puedes enviarme un correo a: <strong>lesterquevedo@gmail.com</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Habilidades -->
+    <section class="skills-section" id="habilidades">
+        <div class="container">
+            <div class="section-title">
+                <h2>Mis Habilidades</h2>
+                <p>Combino creatividad con código para construir soluciones web modernas y responsivas</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Frontend</h3>
+                    <ul class="skill-list">
+                        <li><i class="fas fa-check"></i> HTML5, CSS3</li>
+                        <li><i class="fas fa-check"></i> Responsive Design</li>
+                        <li><i class="fas fa-check"></i> Animaciones CSS</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-tools"></i> Herramientas</h3>
+                    <ul class="skill-list">
+                        <li><i class="fas fa-check"></i> Git, GitHub, GitLab</li>
+                        <li><i class="fas fa-check"></i> Visual Studio Code</li>
+                        <li><i class="fas fa-check"></i> DeepSeek</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+   
+    <!-- Sección de Proyectos -->
+    <section class="projects-section" id="proyectos">
+        <div class="container">
+            <div class="section-title">
+                <h2>Mis Proyectos</h2>
+                <p>Donde las ideas toman forma y el código cobra vida</p>
+            </div>         
+        
+            <div class="projects-grid">
+                <!-- Proyecto 1 -->
+                <div class="project-card">
+                    <img src="imagenes/Salchi Papa.jpg" alt="Proyecto 1" class="project-img">
+                    <div class="project-content">
+                        <h3>LAS Mejores Salchipapa del Mundo</h3>
+                        <p>Descubre nuestra increíble variedad de salchipapas gourmet con ingredientes premium y sabores únicos que te harán volver por más</p>
+                        <div class="project-tags">
+                            <span class="project-tag">HTML5</span>
+                            <span class="project-tag">CSS3</span>
+                            <span class="project-tag">JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="Salchi Papas/index.html" class="project-link" target="_blank"><i class="fas fa-external-link-alt"></i> Demo</a>
+                            <a href="#" class="project-link"><i class="fab fa-github"></i> Código</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Proyecto 2 -->
+                <div class="project-card">
+                    <img src="imagenes/Manicuri.png" alt="Proyecto 2" class="project-img">
+                    <div class="project-content">
+                        <h3>Elegancia en cada Detalle</h3>
+                        <p>Descubre el arte de la manicura de lujo con diseños exclusivos que realzan tu belleza natural. Experimenta un servicio premium en un ambiente sofisticado</p>
+                        <div class="project-tags">
+                            <span class="project-tag">HTML5</span>
+                            <span class="project-tag">CSS3</span>
+                            <span class="project-tag">JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="web Manicuri/index.html" class="project-link" target="_blank"><i class="fas fa-external-link-alt"></i> Demo</a>
+                            <a href="#" class="project-link"><i class="fab fa-github"></i> Código</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Proyecto 3 -->
+                <div class="project-card">
+                    <img src="imagenes/Fenix.jpg" alt="Proyecto 3" class="project-img">
+                    <div class="project-content">
+                        <h3>Fenix: Servicios Integrales</h3>
+                        <p>Esto es una mypime con todos los derechos reservados, en nuestra galeria podra observar todos los productos que estan a su disposicion, de una calidad exelente</p>
+                        <div class="project-tags">
+                            <span class="project-tag">HTML5</span>
+                            <span class="project-tag">CSS3</span>
+                            <span class="project-tag">JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="Otra we fenix/Servicios.html" class="project-link" target="_blank"><i class="fas fa-external-link-alt"></i> Demo</a>
+                            <a href="#" class="project-link"><i class="fab fa-github"></i> Código</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- PROYECTO 4 - NUEVO -->
+                <div class="project-card">
+                    <img src="imagenes/Digital.jpg" alt="Proyecto 4" class="project-img">
+                    <div class="project-content">
+                        <h3>Mundo - Digital</h3>
+                        <p>Impulsamos tu empresa hacia la era digital con soluciones innovadoras que harán renacer tu negocio más fuerte y competitivo que nunca</p>
+                        <div class="project-tags">
+                            <span class="project-tag">HTML5</span>
+                            <span class="project-tag">CSS3</span>
+                            <span class="project-tag">Animaciones CSS</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="Pagina-Dami/index.html" class="project-link" target="_blank"><i class="fas fa-external-link-alt"></i> Demo</a>
+                            <a href="#" class="project-link"><i class="fab fa-github"></i> Código</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- PROYECTO 5 - NUEVO -->
+                <div class="project-card">
+                    <img src="imagenes/web ej.jpg" alt="Proyecto 5" class="project-img">
+                    <div class="project-content">
+                        <h3>Estructuras Web para Desarrolladores Junior</h3>
+                        <p>Como desarrollador junior, es importante conocer las diferentes estructuras que componen una página web moderna. Aquí te presento las principales:</p>
+                        <div class="project-tags">
+                            <span class="project-tag">HTML5</span>
+                            <span class="project-tag">CSS3</span>
+                            <span class="project-tag">API REST</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="Pagina-tutorial/index.html" class="project-link" target="_blank"><i class="fas fa-external-link-alt"></i> Demo</a>
+                            <a href="#" class="project-link"><i class="fab fa-github"></i> Código</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- PROYECTO 6 - NUEVO -->
+                <div class="project-card">
+                    <img src="imagenes/Dev Master.jpg" alt="Proyecto 6" class="project-img">
+                    <div class="project-content">
+                        <h3>Dev - Master</h3>
+                        <p>Creo experiencias digitales extraordinarias combinando diseño innovador con código de alto rendimiento. Especializado en desarrollo web moderno y aplicaciones escalables.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">HTML5</span>
+                            <span class="project-tag">CSS3</span>
+                            <span class="project-tag">Responsive Design</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="web-frontal/index.html" class="project-link" target="_blank"><i class="fas fa-external-link-alt"></i> Demo</a>
+                            <a href="#" class="project-link"><i class="fab fa-github"></i> Código</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyecto 7 -->
+                <div class="project-card">
+                    <img src="imagenes/Galeria.jpg" alt="Proyecto 7" class="project-img">
+                    <div class="project-content">
+                        <h3>Galería Personal</h3>
+                        <p>Una colección exclusiva de mis trabajos y proyectos más destacados. Diseño, creatividad y pasión en cada elemento.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">HTML5</span>
+                            <span class="project-tag">CSS3</span>
+                            <span class="project-tag">JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="Galeria/index.html" class="project-link" target="_blank"><i class="fas fa-external-link-alt"></i> Demo</a>
+                            <a href="#" class="project-link"><i class="fab fa-github"></i> Código</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Proyecto 8 -->
+                <div class="project-card">
+                    <img src="imagenes/Diario.png" alt="Proyecto 8" class="project-img">
+                    <div class="project-content">
+                        <h3>Un lugar donde guardar tu historia</h3>
+                        <p>Para la persona mas importante en tu vida; regalale esta hermosa sorpresa</p>
+                        <div class="project-tags">
+                            <span class="project-tag">HTML5</span>
+                            <span class="project-tag">CSS3</span>
+                            <span class="project-tag">JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="Diario/Diario.html" class="project-link" target="_blank"><i class="fas fa-external-link-alt"></i> Demo</a>
+                            <a href="#" class="project-link"><i class="fab fa-github"></i> Código</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Proyecto 9 -->
+                <div class="project-card">
+                    <img src="imagenes/Habilidades.jpg" alt="Proyecto 9" class="project-img">
+                    <div class="project-content">
+                        <h3>Mis Habilidades y Servicios</h3>
+                        <p>Desarrollo soluciones digitales innovadoras combinando diseño creativo y código eficiente</p>
+                        <div class="project-tags">
+                            <span class="project-tag">HTML5</span>
+                            <span class="project-tag">CSS3</span>
+                            <span class="project-tag">JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="Seccion-caracteristicas/index.html" class="project-link" target="_blank"><i class="fas fa-external-link-alt"></i> Demo</a>
+                            <a href="#" class="project-link"><i class="fab fa-github"></i> Código</a>
+                        </div>      
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <h3>Portafolio</h3>
+                    <p>Desarrollador Frontend junior aprendiendo a crear experiencias digitales excepcionales. Siempre buscando nuevos desafíos y oportunidades para crecer.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#habilidades">Habilidades</a></li>
+                        <li><a href="#proyectos">Proyectos</a></li>
+                        <li><a href="#" id="footer-contact-link">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contacto</h3>
+                    <p><i class="fas fa-envelope"></i>lesterquevedo@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> +53 51251806</p>
+                    <p><i class="fas fa-map-marker-alt"></i> GRANMA, CUBA</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Mi Portafolio. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Elementos del DOM
+        const profileImg = document.getElementById('profile-img');
+        const profileOverlay = document.getElementById('profile-overlay');
+        const whatsappSection = document.getElementById('whatsapp-section');
+        const contactBtn = document.getElementById('contact-btn');
+        const contactLink = document.getElementById('contact-link');
+        const footerContactLink = document.getElementById('footer-contact-link');
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const navMenu = document.getElementById('nav-menu');
+
+        // Mostrar/ocultar sección de WhatsApp
+        function toggleWhatsappSection() {
+            whatsappSection.classList.toggle('active');
+            
+            if (whatsappSection.classList.contains('active')) {
+                // Desplazarse a la sección de WhatsApp
+                whatsappSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Event listeners para abrir la sección de WhatsApp
+        profileImg.addEventListener('click', toggleWhatsappSection);
+        profileOverlay.addEventListener('click', toggleWhatsappSection);
+        contactBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            toggleWhatsappSection();
+        });
+        contactLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            toggleWhatsappSection();
+        });
+        footerContactLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            toggleWhatsappSection();
+        });
+
+        // Menú móvil
+        mobileMenuBtn.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+        });
+
+        // Cerrar menú móvil al hacer clic en un enlace
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', function() {
+                if (window.innerWidth <= 992) {
+                    navMenu.classList.remove('active');
+                }
+            });
+        });
+
+        // Smooth scrolling para enlaces internos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if (this.getAttribute('href') === '#') return;
+                
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Efecto de scroll en el header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Animaciones al hacer scroll
+        function checkScroll() {
+            const elements = document.querySelectorAll('.skill-category, .project-card');
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('animate');
+                }
+            });
+        }
+
+        // Ejecutar al cargar y al hacer scroll
+        window.addEventListener('scroll', checkScroll);
+        window.addEventListener('load', checkScroll);
+
+        // Efecto de typing en el título (opcional)
+        const heroTitle = document.querySelector('.hero h1');
+        const originalText = heroTitle.innerHTML;
+        
+        // Puedes agregar un efecto de escritura si quieres
+        // heroTitle.innerHTML = '';
+        // let i = 0;
+        // function typeWriter() {
+        //     if (i < originalText.length) {
+        //         heroTitle.innerHTML += originalText.charAt(i);
+        //         i++;
+        //         setTimeout(typeWriter, 100);
+        //     }
+        // }
+        // typeWriter();
+    </script>
+</body>
+</html>
