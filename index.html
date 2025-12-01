@@ -652,6 +652,60 @@
             transition: all 0.3s ease;
         }
 
+
+/* ===== ESTILO PARA ENLACE OCULTO ===== */
+.footer-links a[href*="Escondido"] {
+    position: relative;
+    color: transparent !important;
+    background: transparent !important;
+    border: none !important;
+    padding: 5px !important;
+    margin: 5px 0 !important;
+    font-size: 0.8rem !important;
+    text-decoration: none !important;
+    opacity: 0.1;
+    transition: all 0.5s ease;
+    display: inline-block;
+    width: auto;
+    max-width: none;
+    text-align: left;
+    border-radius: 3px;
+}
+
+/* Efecto sutil al pasar el mouse */
+.footer-links a[href*="Escondido"]:hover {
+    opacity: 0.8;
+    color: var(--dorado) !important;
+    background: rgba(212, 175, 55, 0.1) !important;
+    border: 1px solid var(--dorado) !important;
+    transform: scale(1.05);
+}
+
+/* Indicador visual muy sutil */
+.footer-links a[href*="Escondido"]::before {
+    content: '🔍';
+    position: absolute;
+    left: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.7rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.footer-links a[href*="Escondido"]:hover::before {
+    opacity: 0.5;
+}
+
+/* Para móviles, hacerlo un poco más visible */
+@media (max-width: 768px) {
+    .footer-links a[href*="Escondido"] {
+        opacity: 0.3;
+        color: rgba(255, 255, 255, 0.5) !important;
+    }
+}
+
+
         .social-icons a:hover {
             background-color: var(--dorado);
             transform: translateY(-3px) scale(1.1);
@@ -1117,7 +1171,11 @@
                         <li><a href="#habilidades">Habilidades</a></li>
                         <li><a href="#proyectos">Proyectos</a></li>
                         <li><a href="#" id="footer-contact-link">Contacto</a></li>
-                    </ul>
+                        <!--Escondido boton-->
+                        <a href="Escondido/indexx.html" class="project-link"
+target="_blank">666</a>
+             
+                     </ul>
                 </div>
                 <div class="footer-contact">
                     <h3>Contacto</h3>
