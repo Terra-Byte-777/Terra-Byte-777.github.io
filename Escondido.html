@@ -1,408 +1,2418 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="es">
+<cabeza>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal</title>
-</head>
-<body>
-    
-        <!-- Columna derecha - Avatar/Visual -->
-        <div class="about-visual">
-            <div class="avatar-container">
-                <div class="avatar-glitch"></div>
-                <img src="#" alt="" class="avatar">
-                <div class="avatar-glow"></div>
+    <meta name="viewport" content="ancho=ancho-del-dispositivo, escala-inicial=1.0">
+    <title>Panadería Arjona</title>
+    <link rel="hoja de estilo" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <estilo>
+        /* Estilos generales */
+        * {
+            margen: 0;
+            relleno: 0;
+            tamaño de caja: caja de borde;
+            familia de fuentes: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :raíz {
+            --color primario: #f5f5f5;
+            --color secundario: #2c3e50;
+            --color de acento: #d4af37;
+            --gris claro: #f8f9fa;
+            --gris medio: #e9ecef;
+            --gris oscuro: #495057;
+            --color de éxito: #28a745;
+            --color de advertencia: #ffc107;
+            --color de peligro: #dc3545;
+            --modal-overlay: rgba(0, 0, 0, 0.9);
+        }
+
+        cuerpo {
+            color de fondo: var(--color primario);
+            color: #333;
+            altura de línea: 1.6;
+            relleno inferior: 50px;
+            desbordamiento-x: oculto;
+        }
+
+        .contenedor {
+            ancho máximo: 1200px;
+            margen: 0 automático;
+            relleno: 0 15px;
+        }
+
+        /* Encabezado */
+        encabezado {
+            fondo: gradiente lineal (135 grados, var (--color secundario) 0%, #1a252f 100%);
+            color: blanco;
+            relleno: 20px 0;
+            caja-sombra: 0 4px 12px rgba(0, 0, 0, 0.1);
+            posición: relativa;
+            desbordamiento: oculto;
+        }
+
+        encabezado::antes de {
+            contenido: "";
+            posición: absoluta;
+            parte superior: -50%;
+            izquierda: -50%;
+            ancho: 200%;
+            altura: 200%;
+            fondo: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparente 70%);
+        }
+
+        .logo-contenedor {
+            pantalla: flex;
+            alinear-elementos: centro;
+            justificar-contenido: centro;
+            margen inferior: 15px;
+            flex-wrap: envolver;
+        }
+
+        .logotipo {
+            ancho: 70px;
+            altura: 70px;
+            color de fondo: var(--color de acento);
+            radio del borde: 50%;
+            pantalla: flex;
+            alinear-elementos: centro;
+            justificar-contenido: centro;
+            margen derecho: 15px;
+            caja-sombra: 0 4px 8px rgba(0, 0, 0, 0.2);
+            borde: 3px blanco sólido;
+            flexión-contracción: 0;
+        }
+
+        .logotipo y {
+            tamaño de fuente: 35px;
+            color: var(--color-secundario);
+        }
+
+        .contenido del encabezado {
+            alinear texto: centro;
+            flexión: 1;
+            ancho mínimo: 250px;
+        }
+
+        h1 {
+            tamaño de fuente: 2.2rem;
+            margen inferior: 5px;
+            espaciado entre letras: 1px;
+            sombra de texto: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        .eslogan {
+            tamaño de fuente: 1.1rem;
+            color: var(--color-de-acento);
+            peso de fuente: 300;
+            espaciado entre letras: 0,5px;
+        }
+
+        /* Sección principal */
+        .contenido principal {
+            pantalla: flex;
+            flex-wrap: envolver;
+            espacio: 25px;
+            margen superior: 30px;
+        }
+
+        .sección-de-formulario, .sección-de-galería {
+            flexión: 1;
+            ancho mínimo: 300px;
+            color de fondo: blanco;
+            radio del borde: 15px;
+            relleno: 25px;
+            caja-sombra: 0 6px 15px rgba(0, 0, 0, 0.08);
+            borde: 1px sólido var(--gris medio);
+        }
+
+        /* Estilos del formulario */
+        .sección-formulario h2, .sección-galería h2, .sección-admin h2 {
+            color: var(--color-secundario);
+            margen inferior: 20px;
+            relleno inferior: 15px;
+            borde inferior: 2px sólido var(--color de acento);
+            tamaño de fuente: 1.6rem;
+            pantalla: flex;
+            alinear-elementos: centro;
+        }
+
+        .form-sección h2 i, .galería-sección h2 i, .admin-sección h2 i {
+            margen derecho: 12px;
+            color: var(--color-de-acento);
+            tamaño de fuente: 1.4rem;
+        }
+
+        .grupo-de-formularios {
+            margen inferior: 18px;
+        }
+
+        etiqueta {
+            pantalla: bloque;
+            margen inferior: 8px;
+            peso de fuente: 600;
+            color: var(--gris oscuro);
+            tamaño de fuente: 0.95rem;
+        }
+
+        entrada, seleccionar, área de texto {
+            ancho: 100%;
+            relleno: 14px;
+            borde: 1px sólido var(--gris medio);
+            radio del borde: 8px;
+            tamaño de fuente: 16px;
+            transición: color del borde 0,3 s, sombra del cuadro 0,3 s;
+        }
+
+        entrada:foco, seleccionar:foco, área de texto:foco {
+            contorno: ninguno;
+            color del borde: var(--color del acento);
+            caja-sombra: 0 0 0 3px rgba(212, 175, 55, 0.2);
+        }
+
+        .grupo de radio {
+            pantalla: flex;
+            espacio: 15px;
+            margen superior: 8px;
+            flex-wrap: envolver;
+        }
+
+        .opción-radio {
+            pantalla: flex;
+            alinear-elementos: centro;
+        }
+
+        .opción de radio entrada {
+            ancho: automático;
+            margen derecho: 6px;
+        }
+
+        .oculto {
+            pantalla: ninguno !importante;
+        }
+
+        .costo de envío {
+            color de fondo: rgba(212, 175, 55, 0.1);
+            relleno: 12px;
+            radio del borde: 8px;
+            margen superior: 10px;
+            peso de fuente: 600;
+            color: var(--color-secundario);
+            borde izquierdo: 4px sólido var(--color-de-acento);
+            tamaño de fuente: 0.95rem;
+        }
+
+        .opción-de-producto {
+            pantalla: flex;
+            justificar-contenido: espacio-entre;
+            alinear-elementos: centro;
+            relleno: 15px;
+            color de fondo: var(--gris claro);
+            radio del borde: 8px;
+            margen inferior: 10px;
+            borde izquierdo: 4px sólido var(--color secundario);
+            flex-wrap: envolver;
+        }
+
+        .información del producto {
+            flexión: 1;
+            ancho mínimo: 200px;
+            margen inferior: 10px;
+        }
+
+        .nombre-del-producto {
+            peso de fuente: 600;
+            color: var(--color-secundario);
+            margen inferior: 5px;
+        }
+
+        .precio-del-producto {
+            peso de fuente: 700;
+            color: var(--color-de-acento);
+            tamaño de fuente: 1rem;
+        }
+
+        .selector de cantidad {
+            pantalla: flex;
+            alinear-elementos: centro;
+            espacio: 10px;
+        }
+
+        botón selector de cantidad {
+            ancho: 40px;
+            altura: 40px;
+            radio del borde: 50%;
+            borde: ninguno;
+            color de fondo: var(--color secundario);
+            color: blanco;
+            peso de fuente: negrita;
+            cursor: puntero;
+            transición: color de fondo 0,3 s;
+            tamaño de fuente: 1.1rem;
+            pantalla: flex;
+            alinear-elementos: centro;
+            justificar-contenido: centro;
+            flexión-contracción: 0;
+        }
+
+        Botón selector de cantidad: pasar el mouse {
+            color de fondo: var(--color de acento);
+        }
+
+        .selector de cantidad entrada {
+            ancho: 60px;
+            alinear texto: centro;
+            flexión-contracción: 0;
+        }
+
+        .franjas horarias {
+            pantalla: cuadrícula;
+            columnas-de-plantilla-de-cuadrícula: repeat(autocompletar, minmax(110px, 1fr));
+            espacio: 10px;
+            margen superior: 10px;
+        }
+
+        .franja de tiempo {
+            relleno: 12px 5px;
+            alinear texto: centro;
+            color de fondo: var(--gris claro);
+            radio del borde: 6px;
+            cursor: puntero;
+            transición: todos los 0,3 s;
+            borde: 2px sólido transparente;
+            tamaño de fuente: 0.9rem;
+            altura mínima: 45px;
+            pantalla: flex;
+            alinear-elementos: centro;
+            justificar-contenido: centro;
+        }
+
+        .intervalo de tiempo:hover {
+            color de fondo: var(--gris medio);
+        }
+
+        .franja de tiempo.seleccionada {
+            color de fondo: rgba(40, 167, 69, 0.2);
+            color del borde: var(--color del éxito);
+            color: var(--color-de-éxito);
+            peso de fuente: 600;
+        }
+
+        .franja horaria.no disponible {
+            color de fondo: rgba(220, 53, 69, 0.1);
+            color: var(--gris oscuro);
+            cursor: no permitido;
+            decoración de texto: línea a través;
+        }
+
+        .información de pago {
+            color de fondo: rgba(40, 167, 69, 0.1);
+            relleno: 12px;
+            radio del borde: 8px;
+            margen superior: 15px;
+            borde izquierdo: 4px sólido var(--success-color);
+            tamaño de fuente: 0.95rem;
+        }
+
+        .información del horario {
+            color de fondo: rgba(13, 110, 253, 0.1);
+            relleno: 20px;
+            radio del borde: 10px;
+            margen: 25px 0;
+            alinear texto: centro;
+            borde: 1px sólido rgba(13, 110, 253, 0.2);
+        }
+
+        .información del horario h3 {
+            color: var(--color-secundario);
+            margen inferior: 10px;
+            tamaño de fuente: 1.3rem;
+        }
+
+        .información del horario p {
+            margen inferior: 8px;
+            tamaño de fuente: 0.95rem;
+        }
+
+        .whatsapp-contacto {
+            alinear texto: centro;
+            margen superior: 20px;
+            relleno: 15px;
+            color de fondo: rgba(37, 211, 102, 0.1);
+            radio del borde: 10px;
+        }
+
+        .whatsapp-contacto p {
+            margen inferior: 10px;
+            tamaño de fuente: 0.95rem;
+        }
+
+        .whatsapp-contacto a {
+            pantalla: inline-flex;
+            alinear-elementos: centro;
+            justificar-contenido: centro;
+            color: blanco;
+            color de fondo: #25D366;
+            relleno: 12px 25px;
+            radio del borde: 50px;
+            decoración de texto: ninguna;
+            peso de fuente: 600;
+            transición: transformación 0,3 s, cuadro-sombra 0,3 s;
+            tamaño de fuente: 1rem;
+        }
+
+        .whatsapp-contacto a:hover {
+            transformar: translateY(-3px);
+            caja-sombra: 0 5px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        .whatsapp-contacto i {
+            margen derecho: 10px;
+            tamaño de fuente: 1.2rem;
+        }
+
+        .btn-enviar {
+            ancho: 100%;
+            relleno: 18px;
+            fondo: gradiente lineal (a la derecha, var (--color secundario), #1a252f);
+            color: blanco;
+            borde: ninguno;
+            radio del borde: 10px;
+            tamaño de fuente: 1.2rem;
+            peso de fuente: 600;
+            cursor: puntero;
+            transición: todos los 0,3 s;
+            margen superior: 20px;
+            espaciado entre letras: 0,5px;
+            pantalla: flex;
+            alinear-elementos: centro;
+            justificar-contenido: centro;
+            espacio: 10px;
+        }
+
+        .btn-submit:pasar el cursor {
+            fondo: gradiente lineal (a la derecha, var (--color de acento), #c19b2e);
+            transformar: translateY(-3px);
+            caja-sombra: 0 7px 14px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-submit:activo {
+            transformar: translateY(-1px);
+        }
+
+        /* Galería */
+        .alternar galería {
+            ancho: 100%;
+            relleno: 15px;
+            color de fondo: var(--color secundario);
+            color: blanco;
+            borde: ninguno;
+            radio del borde: 10px;
+            tamaño de fuente: 1.1rem;
+            peso de fuente: 600;
+            cursor: puntero;
+            transición: todos los 0,3 s;
+            margen inferior: 20px;
+            pantalla: flex;
+            justificar-contenido: espacio-entre;
+            alinear-elementos: centro;
+        }
+
+        .gallery-toggle:hover {
+            color de fondo: #1a252f;
+        }
+
+        .galería-contenedor {
+            pantalla: cuadrícula;
+            columnas-de-plantilla-de-cuadrícula: repeat(autocompletar, minmax(250px, 1fr));
+            espacio: 20px;
+            margen superior: 20px;
+        }
+
+        .artículo de galería {
+            radio del borde: 10px;
+            desbordamiento: oculto;
+            caja-sombra: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transición: transformar 0,3s;
+            color de fondo: blanco;
+            cursor: puntero;
+        }
+
+        .elemento-de-galería:hover {
+            transformar: translateY(-10px);
+        }
+
+        .galería-img {
+            altura: 220 píxeles; /* Aumentado el tamaño de las imágenes */
+            ancho: 100%;
+            objeto-ajuste: cubierta;
+            borde inferior: 1px sólido var(--gris medio);
+            cursor: puntero;
+            transición: transformar 0,3s;
+        }
+
+        .galería-img:hover {
+            transformar: escala(1.05);
+        }
+
+        .galería-info {
+            relleno: 15px;
+        }
+
+        .galería-info h3 {
+            color: var(--color-secundario);
+            margen inferior: 8px;
+            tamaño de fuente: 1.2rem;
+        }
+
+        .galería-precio {
+            peso de fuente: 700;
+            color: var(--color-de-acento);
+            tamaño de fuente: 1.1rem;
+            margen inferior: 8px;
+        }
+
+        /* Modal para imagen grande - MEJORADO */
+        .superposición modal de imagen {
+            posición: fija;
+            arriba: 0;
+            izquierda: 0;
+            derecha: 0;
+            abajo: 0;
+            color de fondo: var(--modal-overlay);
+            pantalla: flex;
+            justificar-contenido: centro;
+            alinear-elementos: centro;
+            índice z: 2000;
+            relleno: 20px;
+            animación: fadeIn 0.3s facilidad;
+        }
+
+        @keyframes se desvanecen {
+            desde { opacidad: 0; }
+            a { opacidad: 1; }
+        }
+
+        .imagen-modal {
+            posición: relativa;
+            ancho: 100%;
+            altura: 100%;
+            pantalla: flex;
+            justificar-contenido: centro;
+            alinear-elementos: centro;
+        }
+
+        .imagen-modal-contenido {
+            ancho máximo: 95%;
+            altura máxima: 95%;
+            objeto-ajuste: contener;
+            radio del borde: 10px;
+            caja-sombra: 0 10px 40px rgba(0, 0, 0, 0.8);
+            animación: zoomIn 0.3s facilidad;
+        }
+
+        @keyframes zoomIn {
+            desde { transformar: escala(0.8); opacidad: 0; }
+            a { transformar: escala(1); opacidad: 1; }
+        }
+
+        .close-image-modal {
+            posición: absoluta;
+            superior: 20px;
+            derecha: 20px;
+            color de fondo: var(--color-de-peligro);
+            color: blanco;
+            borde: ninguno;
+            tamaño de fuente: 1.8rem;
+            ancho: 50px;
+            altura: 50px;
+            radio del borde: 50%;
+            pantalla: flex;
+            alinear-elementos: centro;
+            justificar-contenido: centro;
+            cursor: puntero;
+            índice z: 2001;
+            transición: todos los 0,3 s;
+            caja-sombra: 0 4px 10px rgba(0, 0, 0, 0.3);
+            peso de fuente: negrita;
+        }
+
+        .close-image-modal:hover {
+            color de fondo: #c82333;
+            transformar: escalar(1.1) rotar(90 grados);
+        }
+
+        .título-modal-de-imagen {
+            posición: absoluta;
+            superior: 20px;
+            izquierda: 50%;
+            transformar: translateX(-50%);
+            color: blanco;
+            tamaño de fuente: 1.5rem;
+            peso de fuente: 600;
+            sombra de texto: 0 2px 5px rgba(0, 0, 0, 0.5);
+            alinear texto: centro;
+            índice z: 2001;
+            color de fondo: rgba(0, 0, 0, 0.5);
+            relleno: 8px 20px;
+            radio del borde: 25px;
+        }
+
+        /* Sección de administración */
+        .acceso de administrador {
+            margen: 40px 0;
+            alinear texto: centro;
+        }
+
+        .admin-btn {
+            relleno: 15px 30px;
+            color de fondo: var(--color secundario);
+            color: blanco;
+            borde: ninguno;
+            radio del borde: 10px;
+            tamaño de fuente: 1.1rem;
+            peso de fuente: 600;
+            cursor: puntero;
+            transición: todos los 0,3 s;
+            pantalla: inline-flex;
+            alinear-elementos: centro;
+            espacio: 10px;
+        }
+
+        .admin-btn:hover {
+            color de fondo: #1a252f;
+            transformar: translateY(-3px);
+            caja-sombra: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .sección-admin {
+            color de fondo: blanco;
+            radio del borde: 15px;
+            relleno: 25px;
+            caja-sombra: 0 6px 15px rgba(0, 0, 0, 0.08);
+            borde: 1px sólido var(--gris medio);
+            margen superior: 40px;
+        }
+
+        .formulario de inicio de sesión {
+            ancho máximo: 400px;
+            margen: 0 automático;
+        }
+
+        .panel de administración {
+            pantalla: ninguna;
+        }
+
+        .controles de administrador {
+            pantalla: flex;
+            justificar-contenido: espacio-entre;
+            margen inferior: 20px;
+            flex-wrap: envolver;
+            espacio: 10px;
+        }
+
+        Botón .admin-controls {
+            relleno: 10px 15px;
+            radio del borde: 6px;
+            borde: ninguno;
+            peso de fuente: 600;
+            cursor: puntero;
+            transición: todos los 0,3 s;
+            tamaño de fuente: 0.9rem;
+            flexión: 1;
+            ancho mínimo: 120px;
+            pantalla: flex;
+            alinear-elementos: centro;
+            justificar-contenido: centro;
+            espacio: 8px;
+        }
+
+        .btn-listo {
+            color de fondo: var(--color de advertencia);
+            color: #333;
+        }
+
+        .btn-entregado {
+            color de fondo: var(--color de éxito);
+            color: blanco;
+        }
+
+        .btn-editar {
+            color de fondo: var(--color secundario);
+            color: blanco;
+        }
+
+        .btn-eliminar {
+            color de fondo: var(--color-de-peligro);
+            color: blanco;
+        }
+
+        .contenedor-de-pedidos {
+            altura máxima: 600px;
+            desbordamiento-y: automático;
+            borde: 1px sólido var(--gris medio);
+            radio del borde: 10px;
+            relleno: 15px;
+        }
+
+        .tarjeta-de-pedido {
+            color de fondo: var(--gris claro);
+            radio del borde: 10px;
+            relleno: 20px;
+            margen inferior: 15px;
+            borde izquierdo: 5px sólido var(--color secundario);
+            transición: todos los 0,3 s;
+            cursor: puntero;
+        }
+
+        .order-card:hover {
+            color de fondo: #f0f0f0;
+        }
+
+        .tarjeta-de-pedido.seleccionado {
+            color de fondo: rgba(212, 175, 55, 0.1);
+            color del borde: var(--color del acento);
+        }
+
+        .order-card.ready {
+            color del borde izquierdo: var(--color de advertencia);
+        }
+
+        .order-card.delivered {
+            color del borde izquierdo: var(--color del éxito);
+        }
+
+        .order-header {
+            pantalla: flex;
+            justificar-contenido: espacio-entre;
+            alinear-elementos: centro;
+            margen inferior: 15px;
+            flex-wrap: envolver;
+            espacio: 10px;
+        }
+
+        .id-del-pedido {
+            peso de fuente: 700;
+            color: var(--color-secundario);
+            tamaño de fuente: 1.1rem;
+        }
+
+        .estado del pedido {
+            relleno: 6px 12px;
+            radio del borde: 20px;
+            tamaño de fuente: 0.9rem;
+            peso de fuente: 600;
+        }
+
+        .estado pendiente {
+            color de fondo: rgba(13, 110, 253, 0.2);
+            color: #0d6efd;
+        }
+
+        .estado-listo {
+            color de fondo: rgba(255, 193, 7, 0.2);
+            color: #ffc107;
+        }
+
+        .estado-entregado {
+            color de fondo: rgba(40, 167, 69, 0.2);
+            color: #28a745;
+        }
+
+        .detalles del pedido {
+            pantalla: cuadrícula;
+            columnas-de-plantilla-de-cuadrícula: repeat(autocompletar, minmax(180px, 1fr));
+            espacio: 12px;
+            margen inferior: 15px;
+        }
+
+        .detalle-del-pedido-artículo {
+            color de fondo: blanco;
+            relleno: 10px;
+            radio del borde: 6px;
+            borde: 1px sólido var(--gris medio);
+            tamaño de fuente: 0.9rem;
+        }
+
+        .order-detail-item fuerte {
+            color: var(--color-secundario);
+            pantalla: bloque;
+            margen inferior: 5px;
+            tamaño de fuente: 0.9rem;
+        }
+
+        .order-products {
+            margen superior: 15px;
+        }
+
+        .order-products h4 {
+            margen inferior: 10px;
+            color: var(--color-secundario);
+            tamaño de fuente: 1.1rem;
+        }
+
+        .order-product-item {
+            pantalla: flex;
+            justificar-contenido: espacio-entre;
+            relleno: 8px 0;
+            borde inferior: 1px discontinuo var(--gris medio);
+            tamaño de fuente: 0.9rem;
+        }
+
+        .orden-total {
+            alinear texto: derecha;
+            peso de fuente: 700;
+            tamaño de fuente: 1.2rem;
+            margen superior: 15px;
+            color: var(--color-secundario);
+        }
+
+        /* Modal de Edición */
+        .superposición modal {
+            posición: fija;
+            arriba: 0;
+            izquierda: 0;
+            derecha: 0;
+            abajo: 0;
+            color de fondo: rgba(0, 0, 0, 0.7);
+            pantalla: flex;
+            justificar-contenido: centro;
+            alinear-elementos: centro;
+            índice z: 1000;
+            relleno: 20px;
+        }
+
+        .edición-modal {
+            color de fondo: blanco;
+            radio del borde: 15px;
+            relleno: 30px;
+            ancho: 100%;
+            ancho máximo: 800px;
+            altura máxima: 90vh;
+            desbordamiento-y: automático;
+            caja-sombra: 0 10px 30px rgba(0, 0, 0, 0.3);
+            posición: relativa;
+        }
+
+        .modal-header {
+            pantalla: flex;
+            justificar-contenido: espacio-entre;
+            alinear-elementos: centro;
+            margen inferior: 25px;
+            relleno inferior: 15px;
+            borde inferior: 2px sólido var(--color de acento);
+        }
+
+        .modal-header h2 {
+            color: var(--color-secundario);
+            tamaño de fuente: 1.8rem;
+            pantalla: flex;
+            alinear-elementos: centro;
+            espacio: 10px;
+        }
+
+        .close-modal {
+            fondo: ninguno;
+            borde: ninguno;
+            tamaño de fuente: 1.8rem;
+            color: var(--gris oscuro);
+            cursor: puntero;
+            transición: color 0,3s;
+            ancho: 40px;
+            altura: 40px;
+            pantalla: flex;
+            alinear-elementos: centro;
+            justificar-contenido: centro;
+            radio del borde: 50%;
+        }
+
+        .close-modal:hover {
+            color: var(--color-de-peligro);
+            color de fondo: rgba(220, 53, 69, 0.1);
+        }
+
+        .contenido-modal {
+            pantalla: cuadrícula;
+            columnas-de-plantilla-de-cuadrícula: repeat(auto-fit, minmax(300px, 1fr));
+            espacio: 20px;
+        }
+
+        .sección-modal {
+            color de fondo: var(--gris claro);
+            relleno: 20px;
+            radio del borde: 10px;
+            borde: 1px sólido var(--gris medio);
+        }
+
+        .sección-modal h3 {
+            color: var(--color-secundario);
+            margen inferior: 15px;
+            tamaño de fuente: 1.3rem;
+            pantalla: flex;
+            alinear-elementos: centro;
+            espacio: 8px;
+        }
+
+        .modal-total {
+            cuadrícula-columna: 1 / -1;
+            color de fondo: rgba(212, 175, 55, 0.1);
+            relleno: 20px;
+            radio del borde: 10px;
+            borde: 2px sólido var(--accent-color);
+            alinear texto: centro;
+            margen superior: 10px;
+        }
+
+        .modal-total h3 {
+            color: var(--color-secundario);
+            margen inferior: 10px;
+        }
+
+        .cantidad-total-de-entrada {
+            ancho: 100%;
+            relleno: 10px;
+            tamaño de fuente: 2rem;
+            peso de fuente: 700;
+            alinear texto: centro;
+            color: var(--color-de-acento);
+            color de fondo: transparente;
+            borde: 2px sólido var(--accent-color);
+            radio del borde: 8px;
+            tamaño de caja: caja de borde;
+        }
+
+        .acciones-modales {
+            cuadrícula-columna: 1 / -1;
+            pantalla: flex;
+            justificar-contenido: flex-end;
+            espacio: 15px;
+            margen superior: 20px;
+            relleno superior: 20px;
+            borde superior: 1px sólido var(--gris medio);
+        }
+
+        .btn-cancelar {
+            relleno: 12px 25px;
+            color de fondo: var(--gris medio);
+            color: var(--gris oscuro);
+            borde: ninguno;
+            radio del borde: 8px;
+            peso de fuente: 600;
+            cursor: puntero;
+            transición: todos los 0,3 s;
+        }
+
+        .btn-cancel:pasar el mouse {
+            color de fondo: #dee2e6;
+        }
+
+        .btn-guardar {
+            relleno: 12px 25px;
+            color de fondo: var(--color de éxito);
+            color: blanco;
+            borde: ninguno;
+            radio del borde: 8px;
+            peso de fuente: 600;
+            cursor: puntero;
+            transición: todos los 0,3 s;
+            pantalla: flex;
+            alinear-elementos: centro;
+            espacio: 8px;
+        }
+
+        .btn-guardar:pasar el cursor {
+            color de fondo: #218838;
+            transformar: translateY(-2px);
+        }
+
+        /* Notificaciones */
+        .notificación {
+            posición: fija;
+            superior: 20px;
+            derecha: 20px;
+            relleno: 15px 20px;
+            radio del borde: 8px;
+            color: blanco;
+            peso de fuente: 600;
+            caja-sombra: 0 5px 15px rgba(0, 0, 0, 0.2);
+            índice z: 1000;
+            pantalla: flex;
+            alinear-elementos: centro;
+            espacio: 10px;
+            ancho máximo: 350px;
+            animación: diapositivaIn 0.3s salida suave;
+        }
+
+        @keyframes diapositivaIn {
+            de { transformar: translateX(100%); opacidad: 0; }
+            a { transformar: translateX(0); opacidad: 1; }
+        }
+
+        .notificación.éxito {
+            color de fondo: var(--color de éxito);
+        }
+
+        .notificación.error {
+            color de fondo: var(--color-de-peligro);
+        }
+
+        .notificación.info {
+            color de fondo: var(--color secundario);
+        }
+
+        .notificación.advertencia {
+            color de fondo: var(--color de advertencia);
+            color: #333;
+        }
+
+        /* Pie de página */
+        pie de página {
+            alinear texto: centro;
+            margen superior: 50px;
+            relleno superior: 20px;
+            borde superior: 1px sólido var(--gris medio);
+            color: var(--gris oscuro);
+            tamaño de fuente: 0.9rem;
+        }
+
+        /*Responsivo*/
+        @media (ancho máximo: 768px) {
+            .contenedor {
+                relleno: 0 10px;
+            }
+            
+            encabezado {
+                relleno: 15px 0;
+            }
+            
+            .logotipo {
+                ancho: 60px;
+                altura: 60px;
+                margen derecho: 10px;
+            }
+            
+            .logotipo y {
+                tamaño de fuente: 30px;
+            }
+            
+            h1 {
+                tamaño de fuente: 1.8rem;
+            }
+            
+            .eslogan {
+                tamaño de fuente: 1rem;
+            }
+            
+            .contenido principal {
+                margen superior: 20px;
+                espacio: 20px;
+            }
+            
+            .sección-de-formulario, .sección-de-galería, .sección-de-admin {
+                relleno: 20px;
+                radio del borde: 12px;
+            }
+            
+            .sección-formulario h2, .sección-galería h2, .sección-admin h2 {
+                tamaño de fuente: 1.4rem;
+            }
+            
+            .opción-de-producto {
+                flex-direccion: columna;
+                alinear-elementos: inicio-flexible;
+            }
+            
+            .información del producto {
+                ancho: 100%;
+                margen inferior: 15px;
+            }
+            
+            .selector de cantidad {
+                ancho: 100%;
+                justificar-contenido: centro;
+            }
+            
+            .franjas horarias {
+                columnas-de-plantilla-de-cuadrícula: repeat(autocompletar, minmax(100px, 1fr));
+            }
+            
+            .franja de tiempo {
+                relleno: 10px 5px;
+                tamaño de fuente: 0.85rem;
+                altura mínima: 40px;
+            }
+            
+            .galería-contenedor {
+                columnas-de-plantilla-de-cuadrícula: repeat(autocompletar, minmax(200px, 1fr));
+                espacio: 15px;
+            }
+            
+            .galería-img {
+                altura: 180 píxeles; /* Ajuste para móviles */
+            }
+            
+            Botón .admin-controls {
+                ancho mínimo: 100px;
+                relleno: 10px;
+                tamaño de fuente: 0.85rem;
+            }
+            
+            .detalles del pedido {
+                columnas de plantilla de cuadrícula: 1fr;
+            }
+            
+            .btn-enviar, .admin-btn {
+                relleno: 15px;
+                tamaño de fuente: 1.1rem;
+            }
+            
+            .contenido-modal {
+                columnas de plantilla de cuadrícula: 1fr;
+            }
+            
+            .edición-modal {
+                relleno: 20px;
+            }
+            
+            .acciones-modales {
+                flex-direccion: columna;
+            }
+            
+            .notificación {
+                ancho máximo: 90%;
+                izquierda: 5%;
+                derecha: 5%;
+                superior: 10px;
+            }
+            
+            .close-image-modal {
+                superior: 15px;
+                derecha: 15px;
+                ancho: 45px;
+                altura: 45px;
+                tamaño de fuente: 1.5rem;
+            }
+            
+            .título-modal-de-imagen {
+                tamaño de fuente: 1.2rem;
+                superior: 15px;
+                relleno: 6px 15px;
+            }
+        }
+
+        @media (ancho máximo: 480px) {
+            h1 {
+                tamaño de fuente: 1.6rem;
+            }
+            
+            .sección-de-formulario, .sección-de-galería, .sección-de-admin {
+                relleno: 15px;
+            }
+            
+            .franjas horarias {
+                columnas-de-plantilla-de-cuadrícula: repeat(3, 1fr);
+            }
+            
+            .galería-contenedor {
+                columnas de plantilla de cuadrícula: 1fr;
+            }
+            
+            .galería-img {
+                altura: 200 píxeles; /* Más grande en móviles pequeños */
+            }
+            
+            .controles de administrador {
+                flex-direccion: columna;
+            }
+            
+            Botón .admin-controls {
+                ancho: 100%;
+            }
+            
+            .order-header {
+                flex-direccion: columna;
+                alinear-elementos: inicio-flexible;
+            }
+            
+            .estado del pedido {
+                margen superior: 5px;
+            }
+            
+            .superposición modal de imagen {
+                relleno: 10px;
+            }
+            
+            .imagen-modal-contenido {
+                ancho máximo: 100%;
+                altura máxima: 80%;
+            }
+            
+            .close-image-modal {
+                superior: 10px;
+                derecha: 10px;
+                ancho: 40px;
+                altura: 40px;
+                tamaño de fuente: 1.3rem;
+            }
+            
+            .título-modal-de-imagen {
+                tamaño de fuente: 1rem;
+                superior: 10px;
+                relleno: 5px 12px;
+            }
+        }
+    </estilo>
+</cabeza>
+<cuerpo>
+    <!-- Encabezado -->
+    <encabezado>
+        <div class="contenedor">
+            <div class="contenedor-de-logotipo">
+                <div class="logo">
+                    <i class="fas fa-bread-slice"></i>
+                </div>
+                <div class="contenido-del-encabezado">
+                    Panadería Arjona
+                    <p class="tagline">Sabor tradicional con calidad excepcional</p>
+                </div>
+            </div>
+        </div>
+    </encabezado>
+
+    <div class="contenedor">
+        <!-- Información de horarios -->
+        <div class="información del horario">
+            <h3><i class="far fa-clock"></i> Nuestros Horarios</h3>
+            <p>Lunes - Sábado: 7:00 AM - 10:00 PM</p>
+            <p style="color: var(--accent-color); font-weight: 600;">Domingo no trabajamos</p>
+            <p style="margin-top: 10px; font-size: 0.9rem;">Si necesitas algo fuera de estos horarios, comunícate con nosotros:</p>
+            <p style="font-weight: 600; margin-top: 5px;">+53 54546359 o +53 59561043</p>
+        </div>
+
+        <div class="contenido-principal">
+            <!-- Sección de formulario -->
+            <section class="sección-de-formulario">
+                <h2><i class="fas fa-shopping-cart"></i> Realizar Pedido</h2>
+                
+                <form id="FormularioDePedido">
+                    <div class="grupo-de-formularios">
+                        <label for="customerName">Nombre (Obligatorio):</label>
+                        <input type="text" id="customerName" placeholder="Ej: Juan Pérez">
+                    </div>
+                    
+                    <div class="grupo-de-formularios">
+                        <label>¿Quieres domicilio?</label>
+                        <div class="grupo-de-radio">
+                            <div class="opción-de-radio">
+                                <input type="radio" id="entregaSí" name="entrega" value="sí">
+                                <label for="deliveryYes" style="display: inline; margin-bottom: 0;">Sí</label>
+                            </div>
+                            <div class="opción-de-radio">
+                                <input type="radio" id="deliveryNo" name="delivery" value="no" marked>
+                                <label for="deliveryNo" style="display: inline; margin-bottom: 0;">No, recogeré en tienda</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="seccióndeentrega" clase="oculto">
+                        <div class="grupo-de-formularios">
+                            <label for="deliveryAddress">Dirección de entrega:</label>
+                            <textarea id="deliveryAddress" rows="3" placeholder="Ingrese a su dirección completa"></textarea>
+                        </div>
+                        
+                        <div class="costo-de-envío">
+                            <p id="deliveryCostText">Costo de domicilio: $100</p>
+                        </div>
+                    </div>
+                    
+                    <div class="grupo-de-formularios">
+                        <label for="phone">Teléfono (requerido):</label>
+                        <input type="tel" id="phone" placeholder="+53 55555555" required>
+                    </div>
+                    
+                    <div class="grupo-de-formularios">
+                        <label>Seleccione sus productos:</label>
+                        
+                        <div class="opción-de-producto">
+                            <div class="información del producto">
+                                <div class="product-name">Mantecados</div>
+                                <div class="product-price">30+ unidades: $25 c/u | Menos de 30: $35 c/u</div>
+                            </div>
+                            <div class="selector-de-cantidad">
+                                <button type="button" class="decrease" data-product="mantecados">-</button>
+                                <input type="number" id="mantecados-qty" min="0" value="0" readonly>
+                                <button type="button" class="increase" data-product="mantecados">+</button>
+                            </div>
+                        </div>
+                        
+                        <div class="opción-de-producto">
+                            <div class="información del producto">
+                                <div class="product-name">Panesillos</div>
+                                <div class="product-price">50+ unidades: $10 c/u | Menos de 50: $15 c/u</div>
+                            </div>
+                            <div class="selector-de-cantidad">
+                                <button type="button" class="decrease" data-product="panesillos">-</button>
+                                <input type="number" id="panesillos-qty" min="0" value="0" readonly>
+                                <button type="button" class="increase" data-product="panesillos">+</button>
+                            </div>
+                        </div>
+                        
+                        <div class="opción-de-producto">
+                            <div class="información del producto">
+                                <div class="product-name">Panesillos Grandes</div>
+                                <div class="product-price">25+ unidades: $20 c/u | Menos de 25: $25 c/u</div>
+                            </div>
+                            <div class="selector-de-cantidad">
+                                <button type="button" class="decrease" data-product="panesillos-grandes">-</button>
+                                <input type="number" id="panesillos-grandes-qty" min="0" value="0" readonly>
+                                <button type="button" class="increase" data-product="panesillos-grandes">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="grupo-de-formularios">
+                        <label for="orderDate">Fecha para recoger/entregar:</label>
+                        <input type="date" id="orderDate" requerido>
+                    </div>
+                    
+                    <div class="grupo-de-formularios">
+                        <label>Seleccione la hora:</label>
+                        <div id="franjas horarias" class="franjas-horarias">
+                            <!-- Las franjas horarias se generan con JavaScript -->
+                        </div>
+                        <p id="Texto de tiempo seleccionado" estilo="margen superior: 10px; peso de fuente: 600; color: var(--color secundario);"></p>
+                    </div>
+                    
+                    <div class="grupo-de-formularios">
+                        <label>Forma de pago:</label>
+                        <div class="grupo-de-radio">
+                            <div class="opción-de-radio">
+                                <input type="radio" id="cash" name="payment" value="cash" marked>
+                                <label for="cash" style="display: inline; margin-bottom: 0;">Efectivo</label>
+                            </div>
+                            <div class="opción-de-radio">
+                                <input type="radio" id="transfer" name="pago" value="transfer">
+                                <label for="transfer" style="display: inline; margin-bottom: 0;">Transferencia</label>
+                            </div>
+                        </div>
+                        
+                        <div id="transferInfo" class="información de pago oculta">
+                            <p><i class="fas fa-info-circle"></i> <strong>Con transferencia se aplica un 10% adicional</strong> sobre el total de productos.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contacto-de-whatsapp">
+                        <p><i class="fas fa-question-circle"></i> ¿Tienes dudas? Escríbenos por WhatsApp:</p>
+                        <a href="https://wa.me/5351136603" target="_blank">
+                            +53 51136603
+                        </a>
+                    </div>
+                    
+                    <botón tipo="enviar" clase="btn-submit">
+                        <i class="fas fa-avion-de-papel"></i> Enviar Pedido
+                    </botón>
+                </form>
+            </sección>
+
+            <!-- Sección de galería -->
+            <section class="sección-de-galería">
+                <button class="gallery-toggle" id="galleryToggle">
+                    <span>Ver Galería de Productos</span>
+                    <i class="fas fa-chevron-down"></i>
+                </botón>
+                
+                <div id="galleryContainer" class="oculto">
+                    <div class="galería-contenedor">
+                        <div class="elemento-de-galería">
+                            <img src="imagenes/mantecados.jpg" alt="Mantecados" class="gallery-img" data-title="Mantecados">
+                            <div class="galería-info">
+                                Mantecados
+                                <p class="gallery-price">30+ unidades: $25 c/u | Menos de 30: $35 c/u</p>
+                                <p>Deliciosos mantecados tradicionales, esponjosos y con el punto justo de dulce.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="elemento-de-galería">
+                            <img src="imagenes/panecillos pequeños.jpg" alt="Panesillos Pequeños" class="gallery-img" data-title="Panesillos Pequeños">
+                            <div class="galería-info">
+                                <h3>Panesillos Pequeños</h3>
+                                <p class="gallery-price">50+ unidades: $10 c/u | Menos de 50: $15 c/u</p>
+                                <p>Panecillos suaves y dorados, perfectos para cualquier momento del día.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="elemento-de-galería">
+                            <img src="imagenes/panecillos grandes.jpg" alt="Panesillos Grandes" class="gallery-img" data-title="Panesillos Grandes">
+                            <div class="galería-info">
+                                <h3>Panesillos Grandes</h3>
+                                <p class="gallery-price">25+ unidades: $20 c/u | Menos de 25: $25 c/u</p>
+                                <p>Nuestros panesillos en tamaño grande, ideales para compartir.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </sección>
+        </div>
+
+        <!-- Acceso a administración -->
+        <div class="acceso-de-administrador">
+            <botón clase="admin-btn" id="adminAccessBtn">
+                <i class="fas fa-lock"></i> Acceso Administrador
+            </botón>
+        </div>
+
+        <!-- Sección de administración (oculta inicialmente) -->
+        <section id="adminSection" class="admin-section oculto">
+            <div id="loginForm" class="login-form">
+                <h2><i class="fas fa-user-shield"></i> Acceso Administrador</h2>
+                <div class="grupo-de-formularios">
+                    <label for="adminPassword">Contraseña:</label>
+                    <input type="password" id="adminPassword" placeholder="Ingrese la contraseña">
+                </div>
+                <button id="loginBtn" class="btn-submit">Ingresar</button>
             </div>
             
-            <div class="tech-orbits">
-                <div class="orbit" style="--delay: 0s">
-                    <span>⚛️ HTML5</span>
+            <div id="adminPanel" class="panel-admin">
+                <h2><i class="fas fa-tasks"></i> Panel de Administración</h2>
+                
+                <div class="controles-de-administración">
+                    <div>
+                        <botón id="markReadyBtn" clase="btn-ready">
+                            <i class="fas fa-check"></i> Un Listo
+                        </botón>
+                        <button id="markDeliveredBtn" class="btn-delivered">
+                            <i class="fas fa-check-double"></i> Dos Listos
+                        </botón>
+                        <button id="editOrderBtn" class="btn-edit">
+                            <i class="fas fa-edit"></i> Editar Pedido
+                        </botón>
+                        <button id="deleteOrderBtn" class="btn-delete">
+                            <i class="fas fa-trash"></i> Eliminar
+                        </botón>
+                    </div>
+                    <div>
+                        <button id="refreshOrdersBtn" class="btn-submit" style="padding: 10px 20px;">
+                            <i class="fas fa-sync-alt"></i> Actualizar
+                        </botón>
+                    </div>
                 </div>
-                <div class="orbit" style="--delay: 1s">
-                    <span>🚀 CSS3</span>
+                
+                <div id="contenedorDePedidos" class="contenedorDePedidos">
+                    <!-- Los pedidos se cargarán dinámicamente -->
                 </div>
-                <div class="orbit" style="--delay: 2s">
-                    <span>🔷 JavaScript</span>
+            </div>
+        </sección>
+    </div>
+
+    <!-- Modal para imagen ampliada - MEJORADO -->
+    <div id="imageModal" class="image-modal-overlay oculto">
+        <div class="image-modal">
+            <button class="close-image-modal" id="closeImageModal" title="Cerrar">×</button>
+            <div class="image-modal-title" id="imageModalTitle"></div>
+            <img id="expandedImage" src="" alt="Imagen ampliada" class="image-modal-content">
+        </div>
+    </div>
+
+    <!-- Modal de Edición (oculto inicialmente) -->
+    <div id="editModal" class="modal-overlay oculto">
+        <div class="editar-modal">
+            <div class="encabezado-modal">
+                <h2><i class="fas fa-edit"></i> Editar Pedido #<span id="editOrderId"></span></h2>
+                <button class="close-modal" id="closeEditModal">×</button>
+            </div>
+            
+            <div class="modal-content">
+                <div class="sección-modal">
+                    <h3><i class="fas fa-user"></i> Información del Cliente</h3>
+                    <div class="grupo-de-formularios">
+                        <label for="editCustomerName">Nombre:</label>
+                        <input type="text" id="editCustomerName" placeholder="Nombre del cliente">
+                    </div>
+                    <div class="grupo-de-formularios">
+                        <label for="editPhone">Teléfono:</label>
+                        <input type="tel" id="editPhone" placeholder="+53 55555555">
+                    </div>
+                </div>
+                
+                <div class="sección-modal">
+                    <h3><i class="fas fa-truck"></i> Entrega</h3>
+                    <div class="grupo-de-formularios">
+                        <label>¿Quieres domicilio?</label>
+                        <div class="grupo-de-radio">
+                            <div class="opción-de-radio">
+                                <input type="radio" id="editDeliveryYes" name="editDelivery" value="yes">
+                                <label for="editDeliveryYes">SÃ</label>
+                            </div>
+                            <div class="opción-de-radio">
+                                <input type="radio" id="editDeliveryNo" name="editDelivery" value="no" marked>
+                                <label for="editDeliveryNo">No, recoger en tienda</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grupo-de-formularios">
+                        <label for="editDeliveryAddress">Dirección:</label>
+                        <textarea id="editDeliveryAddress" rows="2" placeholder="Dirección de entrega"></textarea>
+                    </div>
+                    <div class="grupo-de-formularios">
+                        <label for="editDeliveryCost">Costo de domicilio ($):</label>
+                        <input type="number" id="editDeliveryCost" min="0" value="100">
+                    </div>
+                </div>
+                
+                <div class="sección-modal">
+                    <h3><i class="fas fa-shopping-basket"></i> Productos</h3>
+                    <div class="grupo-de-formularios">
+                        <label for="editMantecados">Mantecados:</label>
+                        <input type="number" id="editMantecados" min="0" value="0">
+                        <pequeño>30+ unidades: $25 c/u | Menos de 30: $35 c/u</small>
+                    </div>
+                    <div class="grupo-de-formularios">
+                        <label for="editPanesillos">Panesillos:</label>
+                        <input type="number" id="editPanesillos" min="0" value="0">
+                        <pequeño>50+ unidades: $10 c/u | Menos de 50: $15 c/u</small>
+                    </div>
+                    <div class="grupo-de-formularios">
+                        <label for="editPanesillosGrandes">Panesillos Grandes:</label>
+                        <input type="number" id="editPanesillosGrandes" min="0" value="0">
+                        <pequeño>25+ unidades: $20 c/u | Menos de 25: $25 c/u</small>
+                    </div>
+                </div>
+                
+                <div class="sección-modal">
+                    <h3><i class="fas fa-calendar-alt"></i> Fecha y Hora</h3>
+                    <div class="grupo-de-formularios">
+                        <label for="editOrderDate">Fecha:</label>
+                        <input type="fecha" id="fechaDePedidoDeEdición">
+                    </div>
+                    <div class="grupo-de-formularios">
+                        <label for="editOrderTime">Hora (HH:MM):</label>
+                        <input type="text" id="editOrderTime" placeholder="Ej: 14:30">
+                    </div>
+                </div>
+                
+                <div class="sección-modal">
+                    <h3><i class="fas fa-money-bill-wave"></i> Pago</h3>
+                    <div class="grupo-de-formularios">
+                        <label>Forma de pago:</label>
+                        <div class="grupo-de-radio">
+                            <div class="opción-de-radio">
+                                <input type="radio" id="editCash" name="editPayment" value="cash" marked>
+                                <label for="editCash">Efectivo</label>
+                            </div>
+                            <div class="opción-de-radio">
+                                <input type="radio" id="editTransfer" name="editPayment" value="transfer">
+                                <label for="editTransfer">Transferencia</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grupo-de-formularios">
+                        <label for="editStatus">Estado del pedido:</label>
+                        <select id="editStatus">
+                            <option value="pending">Pendiente</option>
+                            <option value="ready">Listo (Un Listo)</option>
+                            <option value="delivered">Entregado (Dos Listas)</option>
+                            <option value="cancelled">Cancelado</option>
+                        </seleccionar>
+                    </div>
+                </div>
+                
+                <div class="modal-total">
+                    <h3><i class="fas fa-calculator"></i> Total</h3>
+                    <input type="number" id="editTotalInput" class="total-amount-input" value="0">
+                    <div style="margin-top: 10px; font-size: 0.9rem; color: var(--dark-gray);">
+                        <p id="editCalculationDetails">Productos: $0 + Domicilio: $0 + Transferencia: $0</p>
+                    </div>
+                </div>
+                
+                <div class="acciones-modales">
+                    Cancelar
+                    <button class="btn-save" id="guardarEditar">
+                        <i class="fas fa-save"></i> Guardar Cambios
+                    </botón>
                 </div>
             </div>
         </div>
     </div>
-</section>
 
-<style>
-.about-hero {
-    min-height: 100vh;
-    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
-    display: flex;
-    align-items: center;
-    padding: 100px 5%;
-    position: relative;
-    overflow: hidden;
-}
+    <!-- Pie de página -->
+    <pie de página>
+        <div class="contenedor">
+            <p>Panadería Arjona © <span id="añoactual"></span> | Todos los derechos reservados</p>
+            <p>Diseñado para una gestión eficiente de pedidos</p>
+        </div>
+    </pie de página>
 
-.about-hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: 
-        radial-gradient(circle at 20% 80%, rgba(0, 243, 255, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(183, 103, 255, 0.1) 0%, transparent 50%);
-    animation: float 6s ease-in-out infinite;
-}
+    <!-- Notificaciones -->
+    <div id="Contenedor de notificaciones"></div>
 
-.about-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: center;
-    position: relative;
-    z-index: 2;
-}
-
-.about-badge {
-    display: inline-block;
-    background: linear-gradient(135deg, #00f3ff, #b967ff);
-    padding: 8px 20px;
-    border-radius: 25px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 30px;
-    animation: pulse 2s infinite;
-}
-
-.about-title {
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    font-weight: 800;
-    line-height: 1.1;
-    margin-bottom: 20px;
-    background: linear-gradient(135deg, #ffffff, #00f3ff, #b967ff);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-}
-
-.name-glitch {
-    position: relative;
-    animation: glitch 5s infinite;
-}
-
-.about-subtitle {
-    font-size: 1.3rem;
-    color: rgba(255, 255, 255, 0.8);
-    margin-bottom: 40px;
-    line-height: 1.6;
-}
-
-.highlight {
-    background: linear-gradient(135deg, #00f3ff, #b967ff);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    font-weight: 700;
-}
-
-.about-stats {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    margin: 40px 0;
-}
-
-.stat {
-    text-align: center;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 15px;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: transform 0.3s ease;
-}
-
-.stat:hover {
-    transform: translateY(-5px);
-    border-color: #00f3ff;
-}
-
-.stat-number {
-    font-size: 2.5rem;
-    font-weight: 800;
-    background: linear-gradient(135deg, #00f3ff, #b967ff);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    margin-bottom: 5px;
-}
-
-.stat-label {
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.7);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.about-description {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 40px;
-}
-
-.about-actions {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.btn-primary, .btn-secondary {
-    padding: 15px 35px;
-    font-size: 1rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    display: inline-block;
-}
-
-.btn-primary {
-    background: linear-gradient(135deg, #00f3ff, #b967ff);
-    color: #0a0a0a;
-}
-
-.btn-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(0, 243, 255, 0.3);
-}
-
-.btn-secondary {
-    background: transparent;
-    color: #00f3ff;
-    border: 2px solid #00f3ff;
-}
-
-.btn-secondary:hover {
-    background: #00f3ff;
-    color: #0a0a0a;
-    transform: translateY(-3px);
-}
-
-/* Avatar y efectos visuales */
-.about-visual {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.avatar-container {
-    position: relative;
-    width: 300px;
-    height: 300px;
-}
-
-.avatar {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
-    position: relative;
-    z-index: 3;
-    border: 3px solid #00f3ff;
-    box-shadow: 
-        0 0 50px rgba(0, 243, 255, 0.3),
-        0 0 100px rgba(0, 243, 255, 0.2);
-}
-
-.avatar-glitch {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, #00f3ff, #b967ff);
-    border-radius: 50%;
-    animation: glitch-avatar 4s infinite;
-    opacity: 0.3;
-    z-index: 2;
-}
-
-.avatar-glow {
-    position: absolute;
-    top: -10px;
-    left: -10px;
-    right: -10px;
-    bottom: -10px;
-    background: linear-gradient(135deg, #00f3ff, #b967ff);
-    border-radius: 50%;
-    filter: blur(20px);
-    opacity: 0.3;
-    z-index: 1;
-    animation: pulse 3s infinite;
-}
-
-.tech-orbits {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 400px;
-    height: 400px;
-}
-
-.orbit {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 100%;
-    border: 1px solid rgba(0, 243, 255, 0.3);
-    border-radius: 50%;
-    animation: orbit-rotate 10s linear infinite;
-    animation-delay: var(--delay);
-}
-
-.orbit span {
-    position: absolute;
-    top: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(0, 243, 255, 0.1);
-    padding: 5px 15px;
-    border-radius: 15px;
-    font-size: 0.9rem;
-    backdrop-filter: blur(10px);
-}
-
-.orbit:nth-child(1) { width: 120%; height: 120%; }
-.orbit:nth-child(2) { width: 150%; height: 150%; }
-.orbit:nth-child(3) { width: 180%; height: 180%; }
-
-/* Animaciones */
-@keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
-}
-
-@keyframes pulse {
-    0%, 100% { opacity: 0.3; }
-    50% { opacity: 0.6; }
-}
-
-@keyframes glitch {
-    0%, 100% { transform: translate(0); }
-    20% { transform: translate(-2px, 2px); }
-    40% { transform: translate(-2px, -2px); }
-    60% { transform: translate(2px, 2px); }
-    80% { transform: translate(2px, -2px); }
-}
-
-@keyframes glitch-avatar {
-    0%, 100% { 
-        transform: translate(0) scale(1);
-        opacity: 0.3;
-    }
-    33% { 
-        transform: translate(5px, -5px) scale(1.02);
-        opacity: 0.5;
-    }
-    66% { 
-        transform: translate(-5px, 5px) scale(0.98);
-        opacity: 0.4;
-    }
-}
-
-@keyframes orbit-rotate {
-    from { transform: translate(-50%, -50%) rotate(0deg); }
-    to { transform: translate(-50%, -50%) rotate(360deg); }
-}
-
-/* Responsive */
-@media (max-width: 968px) {
-    .about-container {
-        grid-template-columns: 1fr;
-        gap: 50px;
-        text-align: center;
-    }
-    
-    .about-stats {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-    
-    .avatar-container {
-        width: 250px;
-        height: 250px;
-    }
-    
-    .tech-orbits {
-        width: 350px;
-        height: 350px;
-    }
-}
-
-@media (max-width: 480px) {
-    .about-hero {
-        padding: 80px 5%;
-    }
-    
-    .about-actions {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .btn-primary, .btn-secondary {
-        width: 100%;
-        max-width: 250px;
-    }
-}
-</style>
-
-<script>
-// Animación de contadores
-document.addEventListener('DOMContentLoaded', function() {
-    const counters = document.querySelectorAll('.stat-number');
-    
-    counters.forEach(counter => {
-        const target = parseInt(counter.getAttribue('data-count'));
-        const duration = 2000;
-        const step = target / (duration / 16);
-        let current = 0;
+    <guión>
+        // Variables globales
+        let pedidos = JSON.parse(localStorage.getItem('panaderiaArjonaOrders')) || [];
+        let nextOrderId = parseInt(localStorage.getItem('panaderiaArjonaNextId')) || 1;
+        deje que selectedOrderId = null;
+        deje que los horarios reservados = {};
+        let adminContraseña = "admin123";
+        deje que editingOrder = null;
         
-        const updateCounter = () => {
-            current += step;
-            if (current < target) {
-                counter.textContent = Math.floor(current);
-                requestAnimationFrame(updateCounter);
-            } else {
-                counter.textContent = target + '+';
-            }
-        };
-        
-        // Iniciar cuando el elemento es visible
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    updateCounter();
-                    observer.unobserve(entry.target);
-                }
-            });
+        // Inicialización
+        documento.addEventListener('DOMContentLoaded', función() {
+            documento.getElementById('currentYear').textContent = nueva Fecha().getFullYear();
+            
+            const mañana = nueva Fecha();
+            mañana.setDate(mañana.getDate() + 1);
+            const mañanaFormatted = mañana.toISOString().split('T')[0];
+            documento.getElementById('orderDate').min = mañanaFormatted;
+            document.getElementById('editOrderDate').min = mañanaFormatted;
+            
+            inicializarEventListeners();
+            generarTimeSlots();
+            cargarTiemposReservados();
+            
+            showNotification('Bienvenido a Panadería Arjona. Realice su pedido con anticipación.', 'info');
         });
         
-        observer.observe(counter);
-    });
-});
-</script>
-</body>
+        // Inicializar todos los oyentes de eventos
+        función initializeEventListeners() {
+            // Alternar domicilio
+            document.querySelectorAll('input[name="entrega"]').forEach(radio => {
+                radio.addEventListener('cambiar', toggleDeliverySection);
+            });
+            
+            // Alternar galería
+            documento.getElementById('galleryToggle').addEventListener('click', toggleGallery);
+            
+            // Selector de cantidad de productos - CORREGIDO
+            document.querySelectorAll('.increase').forEach(botón => {
+                botón.addEventListener('clic', aumentarCantidad);
+            });
+            
+            document.querySelectorAll('.decrease').forEach(botón => {
+                botón.addEventListener('clic', disminuirCantidad);
+            });
+            
+            // Alternar información de transferencia
+            document.querySelectorAll('input[name="pago"]').forEach(radio => {
+                radio.addEventListener('cambiar', toggleTransferInfo);
+            });
+            
+            // Cambio de fecha para regenerar horarios
+            document.getElementById('orderDate').addEventListener('cambio', generateTimeSlots);
+            
+            // Envío del formulario
+            document.getElementById('orderForm').addEventListener('submit', submitOrder);
+            
+            // Acceso al administrador
+            documento.getElementById('adminAccessBtn').addEventListener('click', showAdminSection);
+            documento.getElementById('loginBtn').addEventListener('click', loginAdmin);
+            
+            // Botones del admin
+            documento.getElementById('refreshOrdersBtn').addEventListener('click', loadOrders);
+            documento.getElementById('markReadyBtn').addEventListener('click', markOrderReady);
+            document.getElementById('markDeliveredBtn').addEventListener('click', markOrderDelivered);
+            documento.getElementById('editOrderBtn').addEventListener('click', openEditModal);
+            documento.getElementById('deleteOrderBtn').addEventListener('clic', deleteOrder);
+            
+            // Establecer costo de domicilio aleatorio
+            establecerCostoDeEntregaAleatorio();
+            
+            // Eventos del modo de edición
+            document.getElementById('closeEditModal').addEventListener('click', closeEditModal);
+            document.getElementById('cancelEdit').addEventListener('click', closeEditModal);
+            document.getElementById('saveEdit').addEventListener('click', saveEditedOrder);
+            
+            // Eventos para recalcular total en modal
+            document.getElementById('editMantecados').addEventListener('input', recalculateEditTotal);
+            document.getElementById('editPanesillos').addEventListener('input', recalculateEditTotal);
+            document.getElementById('editPanesillosGrandes').addEventListener('input', recalculateEditTotal);
+            document.getElementById('editDeliveryCost').addEventListener('input', recalculateEditTotal);
+            document.querySelectorAll('input[name="editPayment"]').forEach(radio => {
+                radio.addEventListener('cambiar', recalcularEditTotal);
+            });
+            document.querySelectorAll('input[name="editDelivery"]').forEach(radio => {
+                radio.addEventListener('cambio', función() {
+                    const deliveryCostInput = document.getElementById('editDeliveryCost');
+                    si (este.valor === 'si') {
+                        deliveryCostInput.disabled = falso;
+                        deliveryCostInput.value = deliveryCostInput.value || '100';
+                    } demás {
+                        deliveryCostInput.disabled = verdadero;
+                        deliveryCostInput.valor = '0';
+                    }
+                    recalcularEditTotal();
+                });
+            });
+            
+            // No actualizar automáticamente el total si el usuario está editando manualmente
+            constante editTotalInput = document.getElementById('editTotalInput');
+            editTotalInput.addEventListener('focus', función() {
+                este.dataset.manualEdit = 'verdadero';
+            });
+            
+            editTotalInput.addEventListener('blur', función() {
+                si (este.valor !== este.conjuntodedatos.últimoAutoValor) {
+                    este.dataset.manualEdit = 'verdadero';
+                }
+            });
+            
+            // Eventos para el modal de imagen ampliada
+            documento.getElementById('closeImageModal').addEventListener('click', closeImageModal);
+            document.getElementById('imageModal').addEventListener('clic', función(e) {
+                si (e.target.id === 'imageModal' || e.target.classList.contains('image-modal')) {
+                    cerrarImageModal();
+                }
+            });
+            
+            // Evento para cerrar con la tecla Escape
+            documento.addEventListener('keydown', función(e) {
+                si (e.key === 'Escape' && !document.getElementById('imageModal').classList.contains('hidden')) {
+                    cerrarImageModal();
+                }
+            });
+            
+            // Eventos para abrir imágenes en grande - MEJORADO
+            documento.querySelectorAll('.gallery-img').forEach(img => {
+                img.addEventListener('clic', openImageModal);
+            });
+            
+            // Agregar eventos también cuando se muestre la galería
+            document.getElementById('galleryToggle').addEventListener('clic', función() {
+                establecerTiempo de espera(() => {
+                    documento.querySelectorAll('.gallery-img').forEach(img => {
+                        si (!img.hasAttribute('data-listener-added')) {
+                            img.addEventListener('clic', openImageModal);
+                            img.setAttribute('data-listener-added', 'verdadero');
+                        }
+                    });
+                }, 100);
+            });
+        }
+        
+        // Abrir imagen en grande - MEJORADO
+        función openImageModal(evento) {
+            const imgElement = evento.objetivo;
+            const imgSrc = imgElement.src;
+            const imgTitle = imgElement.getAttribute('título-datos') || imgElement.alt;
+            
+            documento.getElementById('Imagenexpandida').src = imgSrc;
+            documento.getElementById('imageModalTitle').textContent = imgTitle;
+            documento.getElementById('imageModal').classList.remove('oculto');
+            document.body.style.overflow = 'oculto';
+            
+            // Enfocar el botón de cerrar para mejor accesibilidad
+            establecerTiempo de espera(() => {
+                documento.getElementById('closeImageModal').focus();
+            }, 100);
+        }
+        
+        // Cerrar imagen en grande
+        función closeImageModal() {
+            documento.getElementById('imageModal').classList.add('oculto');
+            documento.body.style.overflow = 'auto';
+        }
+        
+        // Generar costo de domicilio aleatorio (100 o 150)
+        función setRandomDeliveryCost() {
+            constante deliveryCost = Math.random() < 0.5 ? 100 : 150;
+            document.getElementById('deliveryCostText').textContent = `Costo de domicilio: $${deliveryCost}`;
+        }
+        
+        // Mostrar/ocultar sección de domicilio
+        función toggleDeliverySection() {
+            constante deliverySection = document.getElementById('deliverySection');
+            const entregaSí = document.getElementById('entregaSí');
+            
+            si (entregaSí.marcado) {
+                deliverySection.classList.remove('oculto');
+                establecerCostoDeEntregaAleatorio();
+            } demás {
+                deliverySection.classList.add('oculto');
+            }
+        }
+        
+        // Mostrar/ocultar galería
+        función toggleGallery() {
+            constante galeríaContenedor = document.getElementById('galeríaContenedor');
+            constante toggleIcon = document.querySelector('#galleryToggle i');
+            
+            si (galleryContainer.classList.contains('oculto')) {
+                galeríaContenedor.classList.remove('oculto');
+                toggleIcon.classList.remove('fa-chevron-down');
+                toggleIcon.classList.add('fa-chevron-up');
+                document.querySelector('#galleryToggle span').textContent = 'Ocultar Galería de Productos';
+            } demás {
+                galeríaContenedor.classList.add('oculto');
+                toggleIcon.classList.remove('fa-chevron-up');
+                toggleIcon.classList.add('fa-chevron-abajo');
+                document.querySelector('#galleryToggle span').textContent = 'Ver Galería de Productos';
+            }
+        }
+        
+        // Aumentar cantidad de producto - FUNCIÓN CORREGIDA
+        función increaseQuantity(evento) {
+            const producto = evento.objetivo.conjunto de datos.producto;
+            // Usar el ID correcto manteniendo los guiones
+            constante inputId = `${producto}-cantidad`;
+            constante entrada = documento.getElementById(inputId);
+            si (entrada) {
+                entrada.valor = parseInt(entrada.valor) + 1;
+            }
+        }
+        
+        // Disminuir cantidad de producto - FUNCIÃ“N CORREGIDA
+        función disminuirCantidad(evento) {
+            const producto = evento.objetivo.conjunto de datos.producto;
+            // Usar el ID correcto manteniendo los guiones
+            constante inputId = `${producto}-cantidad`;
+            constante entrada = documento.getElementById(inputId);
+            constante valorActual = parseInt(entrada.valor);
+            
+            si (valorActual > 0) {
+                entrada.valor = valorActual - 1;
+            }
+        }
+        
+        // Mostrar/ocultar información de transferencia
+        función toggleTransferInfo() {
+            constante transferInfo = document.getElementById('transferInfo');
+            const transferRadio = document.getElementById('transferencia');
+            
+            si (transferRadio.checked) {
+                transferInfo.classList.remove('oculto');
+            } demás {
+                transferInfo.classList.add('oculto');
+            }
+        }
+        
+        // Generar franjas horarias
+        función generateTimeSlots() {
+            const timeSlotsContainer = document.getElementById('timeSlots');
+            const selectedDate = document.getElementById('orderDate').value;
+            
+            si (!fechaseleccionada) {
+                timeSlotsContainer.innerHTML = '<p class="time-slot unavailable">Seleccione una fecha primero</p>';
+                devolver;
+            }
+            
+            timeSlotsContainer.innerHTML = '';
+            
+            constante horaInicio = 7;
+            constante finHora = 21;
+            intervalos constantes = ['00', '30'];
+            
+            para (dejar hora = horaInicio; hora <= horaFin; hora++) {
+                para (sea intervalo de intervalos) {
+                    si (hora === 21 && intervalo === '30') descanso;
+                    
+                    constante timeString = `${hora.toString().padStart(2, '0')}:${intervalo}`;
+                    const displayTime = `${hora > 12 ? hora - 12 : hora}:${intervalo} ${hora >= 12 ? 'PM' : 'AM'}`;
+                    
+                    constante timeSlot = document.createElement('div');
+                    timeSlot.className = 'franja de tiempo';
+                    timeSlot.dataset.time = cadena de tiempo;
+                    timeSlot.textContent = mostrarHora;
+                    
+                    constante dateTimeKey = `${fechaseleccionada}-${cadenadetiempo}`;
+                    si (bookedTimes[fechaHoraClave]) {
+                        timeSlot.classList.add('no disponible');
+                        timeSlot.title = 'Este horario ya está reservado';
+                    }
+                    
+                    timeSlot.addEventListener('clic', función() {
+                        si (!this.classList.contains('no disponible')) {
+                            document.querySelectorAll('.time-slot').forEach(slot => {
+                                slot.classList.remove('seleccionado');
+                            });
+                            
+                            esta.classList.add('seleccionado');
+                            document.getElementById('selectedTimeText').textContent = `Hora seleccionada: ${displayTime}`;
+                        }
+                    });
+                    
+                    timeSlotsContainer.appendChild(intervalo de tiempo);
+                }
+            }
+        }
+        
+        // Carga tiempos reservados desde pedidos existentes
+        función loadBookedTimes() {
+            tiempos reservados = {};
+            
+            pedidos.paraCada(pedido => {
+                si (pedido.estado !== 'cancelado' && pedido.fecha && pedido.hora) {
+                    constante dateTimeKey = `${pedido.fecha}-${pedido.hora}`;
+                    bookedTimes[claveFechaHora] = verdadero;
+                }
+            });
+        }
+        
+        // Enviar pedido
+        función submitOrder(evento) {
+            evento.preventDefault();
+            
+            const customerName = document.getElementById('customerName').value || 'Cliente no identificado';
+            const quiereEntrega = document.getElementById('entregaSi').checked;
+            const direccionDeEntrega = quiereEntrega ? document.getElementById('direccionDeEntrega').value : '';
+            const teléfono = document.getElementById('teléfono').value;
+            const mantecadosQty = parseInt(document.getElementById('mantecados-qty').value);
+            const panesillosQty = parseInt(document.getElementById('panesillos-qty').value);
+            const panesillosGrandesQty = parseInt(document.getElementById('panesillos-grandes-qty').value);
+            const FechaPedido = document.getElementById('FechaPedido').valor;
+            const paymentMethod = document.querySelector('input[name="pago"]:checked').value;
+            
+            constante selectedTimeSlot = document.querySelector('.time-slot.selected');
+            si (!selectedTimeSlot) {
+                showNotification('Por favor, seleccione una hora para su pedido.', 'error');
+                devolver;
+            }
+            
+            constante orderTime = selectedTimeSlot.dataset.time;
+            
+            if (mantecadosQty === 0 && panesillosQty === 0 && panesillosGrandesQty === 0) {
+                showNotification('Por favor seleccione al menos un producto.', 'error');
+                devolver;
+            }
+            
+            // Calcular precios según cantidad (NUEVOS PRECIOS)
+            let mantecadosPrecio = mantecadosCantidad >= 30 ? 25: 35;
+            deje que panesillosPrecio = panesillosCantidad >= 50 ? 10 : 15;
+            deje que panesillosGrandesPrecio = panesillosGrandesCantidad >= 25 ? 20 : 25;
+            
+            // Calcular subtotales
+            const mantecadosSubtotal = mantecadosCantidad * mantecadosPrecio;
+            const panesillosSubtotal = panesillosQty * panesillosPrice;
+            const panesillosGrandesSubtotal = panesillosGrandesQty * panesillosGrandesPrice;
+            
+            // Calcular total de productos
+            let productsTotal = mantecadosSubtotal + panesillosSubtotal + panesillosGrandesSubtotal;
+            
+            // Aplicar CARGO ADICIONAL por transferencia (10% extra)
+            deje que transferCharge = 0;
+            si (método de pago === 'transferencia') {
+                cargoTransferencia = totalProductos * 0.1;
+            }
+            
+            // Calcular costo de domicilio
+            deje que deliveryCost = 0;
+            si (quiereEntrega) {
+                const deliveryCostText = document.getElementById('deliveryCostText').textContent;
+                costoDeEntrega = parseInt(TextoCostoDeEntrega.match(/\$(\d+)/)[1]);
+            }
+            
+            // Calcular total final (productos + transferencia de carga + domicilio)
+            const total = totalProductos + CargoTransferencia + CostoEnvío;
+            
+            // Crear objeto de pedido
+            orden constante = {
+                id: nextOrderId++,
+                nombreCliente: nombreCliente,
+                teléfono: teléfono,
+                quiereEntrega: quiereEntrega,
+                direcciónDeEntrega: direcciónDeEntrega,
+                costo de entrega: costo de entrega,
+                productos: {
+                    mantecados: { cantidad: mantecadosCantidad, precio: mantecadosPrecio, subtotal: mantecadosSubtotal },
+                    panesillos: { cantidad: panesillosCantidad, precio: panesillosPrecio, subtotal: panesillosSubtotal },
+                    panesillosGrandes: { cantidad: panesillosGrandesQty, precio: panesillosGrandesPrice, subtotal: panesillosGrandesSubtotal }
+                },
+                productosTotal: productosTotal,
+                transferenciaCarga: transferenciaCarga,
+                total: total,
+                fecha: fecha del pedido,
+                tiempo: orderTime,
+                método de pago: método de pago,
+                estado: 'pendiente',
+                creadoEn: nueva Fecha().toISOString()
+            };
+            
+            pedidos.push(orden);
+            
+            constante dateTimeKey = `${orderDate}-${orderTime}`;
+            bookedTimes[claveFechaHora] = verdadero;
+            
+            guardarOrdenes();
+            
+            showNotification(`Pedido #${order.id} realizado con éxito. Total: $${total}`, 'success');
+            
+            scheduleNotification(orden);
+            
+            documento.getElementById('formularioDePedido').reset();
+            document.querySelectorAll('.time-slot').forEach(slot => {
+                slot.classList.remove('seleccionado');
+            });
+            documento.getElementById('selectedTimeText').textContent = '';
+            documento.getElementById('deliverySection').classList.add('oculto');
+            documento.getElementById('transferInfo').classList.add('oculto');
+            document.getElementById('mantecados-cantidad').value = 0;
+            documento.getElementById('panesillos-qty').value = 0;
+            document.getElementById('panesillos-grandes-cantidad').value = 0;
+            
+            generarTimeSlots();
+        }
+        
+        // Programar notificación una hora antes del pedido
+        función scheduleNotification(orden) {
+            const orderDate = new Date(`${order.date}T${order.time}:00`);
+            constante notificationTime = nueva Fecha(orderDate.getTime() - 60 * 60 * 1000);
+            
+            si (horaNotificación > nueva Fecha()) {
+                const timeUntilNotification = notificationTime.getTime() - nueva Fecha().getTime();
+                
+                establecerTiempo de espera(() => {
+                    showNotification(`Recordatorio: El pedido #${order.id} está programado para ${order.time} hoy.`, 'info');
+                }, tiempoHastaNotificación);
+            }
+        }
+        
+        // Mostrar sección de administración
+        función showAdminSection() {
+            documento.getElementById('adminSection').classList.remove('oculto');
+            document.getElementById('adminSection').scrollIntoView({ comportamiento: 'suave' });
+        }
+        
+        // Iniciar sesión como administrador
+        función loginAdmin() {
+            const contraseñaInput = document.getElementById('adminPassword');
+            const contraseña = contraseñaInput.valor;
+            
+            if (contraseña === contraseña de administrador) {
+                document.getElementById('loginForm').style.display = 'ninguno';
+                
+                const adminPanel = document.getElementById('adminPanel');
+                adminPanel.style.display = 'bloque';
+                
+                contraseñaInput.valor = '';
+                
+                cargarÓrdenes();
+                
+                showNotification('Sesión iniciada como administrador. Puedes gestionar los pedidos.', 'success');
+            } demás {
+                showNotification('Contraseña incorrecta. Intento con: admin123', 'error');
+                contraseñaInput.valor = '';
+            }
+        }
+        
+        // Cargar pedidos en el panel de administración
+        función loadOrders() {
+            const ordersContainer = document.getElementById('ordersContainer');
+            
+            si (pedidos.longitud === 0) {
+                ordersContainer.innerHTML = '<div class="order-card"><p>No hay pedidos registrados.</p></div>';
+                devolver;
+            }
+            
+            const sortedOrders = [...orders].sort((a, b) => {
+                constante dateA = nueva Fecha(`${a.date}T${a.time}:00`);
+                constante dateB = nueva Fecha(`${b.date}T${b.time}:00`);
+                devolver fechaA - fechaB;
+            });
+            
+            pedidosContainer.innerHTML = '';
+            
+            sortedOrders.forEach(orden => {
+                const orderDate = new Date(`${order.date}T${order.time}:00`);
+                const formattedDate = orderDate.toLocaleDateString('es-ES', { día de la semana: 'long', año: 'numeric', mes: 'long', día: 'numeric' });
+                const formattedTime = orden.hora;
+                
+                deje que statusClass = 'estado-pendiente';
+                dejar que el texto de estado = 'Pendiente';
+                
+                si (pedido.estado === 'listo') {
+                    statusClass = 'estado listo';
+                    statusText = 'Listo';
+                } de lo contrario si (order.status === 'entregado') {
+                    statusClass = 'estado-entregado';
+                    statusText = 'Entregado';
+                } de lo contrario si (order.status === 'cancelado') {
+                    statusClass = 'estado-cancelado';
+                    statusText = 'Cancelado';
+                }
+                
+                constante orderCard = documento.createElement('div');
+                orderCard.className = `order-card ${order.status} ${selectedOrderId === order.id ? 'selected' : ''}`;
+                orderCard.dataset.orderId = pedido.id;
+                
+                orderCard.innerHTML = `
+                    <div class="encabezado-de-pedido">
+                        <div>
+                            <span class="order-id">Pedido #${order.id}</span>
+                            <span class="order-status ${statusClass}">${statusText}</span>
+                        </div>
+                        <div>
+                            <input type="checkbox" class="order-checkbox" data-order-id="${order.id}" ${selectedOrderId === order.id ? 'checked' : ''}>
+                        </div>
+                    </div>
+                    <div class="detalles del pedido">
+                        <div class="artículo-detalle-del-pedido">
+                            Cliente:
+                            ${order.customerName}
+                        </div>
+                        <div class="artículo-detalle-del-pedido">
+                            <strong>Teléfono:</strong>
+                            ${pedido.teléfono}
+                        </div>
+                        <div class="artículo-detalle-del-pedido">
+                            <strong>Fecha y hora:</strong>
+                            ${fechaformateada}<br>
+                            ${formattedTime}
+                        </div>
+                        <div class="artículo-detalle-del-pedido">
+                            Entrega:
+                            ${pedido.quiereEntrega? 'Domicilio' : 'Recoger en tienda'}
+                            ${order.wantsDelivery ? `<br><strong>Dirección:</strong> ${order.deliveryAddress}` : ''}
+                        </div>
+                        <div class="artículo-detalle-del-pedido">
+                            Pago:
+                            ${order.paidMethod === 'efectivo'? 'Efectivo' : 'Transferencia (+10%)'}
+                        </div>
+                        <div class="artículo-detalle-del-pedido">
+                            Estado:
+                            ${texto de estado}
+                        </div>
+                    </div>
+                    <div class="productos-de-pedido">
+                        <h4>Productos:</h4>
+                        ${order.products.mantecados.quantity > 0 ? `
+                        <div class="artículo-del-producto-del-pedido">
+                            <span>Mantecados (x${order.products.mantecados.cantidad})</span>
+                            <span>$${pedido.productos.mantecados.subtotal}</span>
+                        </div>
+                        ` : ''}
+                        ${order.products.panesillos.quantity > 0 ? `
+                        <div class="artículo-del-producto-del-pedido">
+                            <span>Panesillos (x${order.products.panesillos.quantity})</span>
+                            <span>$${order.products.panesillos.subtotal}</span>
+                        </div>
+                        ` : ''}
+                        ${order.products.panesillosGrandes.quantity > 0 ? `
+                        <div class="artículo-del-producto-del-pedido">
+                            <span>Panesillos Grandes (x${order.products.panesillosGrandes.quantity})</span>
+                            <span>$${order.products.panesillosGrandes.subtotal}</span>
+                        </div>
+                        ` : ''}
+                        ${order.deliveryCost > 0 ? `
+                        <div class="artículo-del-producto-del-pedido">
+                            <span>Costo de domicilio</span>
+                            <span>$${pedido.costodeentrega}</span>
+                        </div>
+                        ` : ''}
+                        ${order.transferCharge > 0 ? `
+                        <div class="artículo-del-producto-del-pedido">
+                            <span>Carga por transferencia (10%)</span>
+                            <span>+$${order.transferCharge}</span>
+                        </div>
+                        ` : ''}
+                        <div class="order-product-item" style="border-bottom: none; font-weight: bold;">
+                            <span>Subtotal productos</span>
+                            <span>$${order.productsTotal}</span>
+                        </div>
+                    </div>
+                    <div class="total-del-pedido">
+                        Total: $${order.total}
+                    </div>
+                `;
+                
+                orderCard.addEventListener('clic', función(e) {
+                    si (!e.target.classList.contains('order-checkbox')) {
+                        constante casillas de verificación = document.querySelectorAll('.order-checkbox');
+                        casillas de verificación.forEach(cb => cb.checked = false);
+                        
+                        constante casilla de verificación = this.querySelector('.order-checkbox');
+                        casilla de verificación.marcada = !casilla de verificación.marcada;
+                        
+                        si (casilla de verificación marcada) {
+                            selectedOrderId = pedido.id;
+                            document.querySelectorAll('.order-card').forEach(tarjeta => {
+                                card.classList.remove('seleccionado');
+                            });
+                            esta.classList.add('seleccionado');
+                        } demás {
+                            selectedOrderId = nulo;
+                            esta.classList.remove('seleccionado');
+                        }
+                    }
+                });
+                
+                constante casilla de verificación = orderCard.querySelector('.order-checkbox');
+                casilla de verificación.addEventListener('clic', función(e) {
+                    e.stopPropagation();
+                    
+                    si (esto.marcado) {
+                        selectedOrderId = pedido.id;
+                        document.querySelectorAll('.order-card').forEach(tarjeta => {
+                            card.classList.remove('seleccionado');
+                        });
+                        orderCard.classList.add('seleccionado');
+                    } demás {
+                        selectedOrderId = nulo;
+                        orderCard.classList.remove('seleccionado');
+                    }
+                });
+                
+                ordersContainer.appendChild(tarjetaDePedido);
+            });
+        }
+        
+        // Marcar pedido como listo
+        función markOrderReady() {
+            si (!selectedOrderId) {
+                showNotification('Por favor seleccione un pedido.', 'warning');
+                devolver;
+            }
+            
+            const orderIndex = pedidos.findIndex(o => o.id === selectedOrderId);
+            
+            si (índiceDeOrden !== -1) {
+                pedidos[orderIndex].status = 'listo';
+                guardarOrdenes();
+                cargarÓrdenes();
+                showNotification(`Pedido #${selectedOrderId} marcado como listo (UN LISTO).`, 'success');
+                selectedOrderId = nulo;
+            }
+        }
+        
+        // Marcar pedido como entregado
+        función markOrderDelivered() {
+            si (!selectedOrderId) {
+                showNotification('Por favor seleccione un pedido.', 'warning');
+                devolver;
+            }
+            
+            const orderIndex = pedidos.findIndex(o => o.id === selectedOrderId);
+            
+            si (índiceDeOrden !== -1) {
+                pedidos[orderIndex].status = 'entregado';
+                guardarOrdenes();
+                cargarÓrdenes();
+                showNotification(`Pedido #${selectedOrderId} marcado como entregado (DOS LISTOS).`, 'success');
+                selectedOrderId = nulo;
+            }
+        }
+        
+        // Abrir modal para editar pedido
+        función openEditModal() {
+            si (!selectedOrderId) {
+                showNotification('Por favor seleccione un pedido para editar.', 'warning');
+                devolver;
+            }
+            
+            const orderIndex = pedidos.findIndex(o => o.id === selectedOrderId);
+            
+            si (índiceDeOrden !== -1) {
+                editingOrder = pedidos[índiceDeOrden];
+                
+                document.getElementById('editOrderId').textContent = editOrder.id;
+                document.getElementById('editCustomerName').value = editingOrder.customerName;
+                document.getElementById('editPhone').value = editingOrder.phone;
+                
+                si (ediciónOrden.quiereEntrega) {
+                    documento.getElementById('editDeliveryYes').checked = verdadero;
+                    document.getElementById('editDeliveryAddress').value = editingOrder.deliveryAddress;
+                    document.getElementById('editDeliveryCost').value = editingOrder.deliveryCost;
+                    documento.getElementById('editDeliveryCost').disabled = falso;
+                } demás {
+                    documento.getElementById('editDeliveryNo').checked = verdadero;
+                    documento.getElementById('editDeliveryAddress').value = '';
+                    documento.getElementById('editDeliveryCost').value = '0';
+                    documento.getElementById('editDeliveryCost').disabled = verdadero;
+                }
+                
+                document.getElementById('editMantecados').value = editingOrder.products.mantecados.quantity;
+                document.getElementById('editPanesillos').value = editingOrder.products.panesillos.quantity;
+                document.getElementById('editPanesillosGrandes').value = editingOrder.products.panesillosGrandes.quantity;
+                
+                document.getElementById('editOrderDate').value = editingOrder.date;
+                document.getElementById('editOrderTime').value = editingOrder.time;
+                
+                si (editingOrder.paymentMethod === 'efectivo') {
+                    documento.getElementById('editCash').checked = verdadero;
+                } demás {
+                    documento.getElementById('editTransfer').checked = verdadero;
+                }
+                
+                document.getElementById('editStatus').value = editingOrder.status;
+                documento.getElementById('editTotalInput').value = editingOrder.total;
+                
+                recalcularEditTotal();
+                
+                documento.getElementById('editModal').classList.remove('oculto');
+            }
+        }
+        
+        // Recalcular total en modal de edición
+        función recalcularEditTotal() {
+            const mantecadosQty = parseInt(document.getElementById('editMantecados').value) || 0;
+            const panesillosQty = parseInt(document.getElementById('editPanesillos').value) || 0;
+            const panesillosGrandesQty = parseInt(document.getElementById('editPanesillosGrandes').value) || 0;
+            
+            const quiereEntrega = document.getElementById('editDeliveryYes').checked;
+            const deliveryCost = quiereEntrega ?(parseInt(document.getElementById('editDeliveryCost').value) || 0) : 0;
+            const paymentMethod = document.querySelector('input[name="editPayment"]:checked').value;
+            
+            // NUEVOS PRECIOS SEGÚN CANTIDAD
+            let mantecadosPrecio = mantecadosCantidad >= 30 ? 25: 35;
+            deje que panesillosPrecio = panesillosCantidad >= 50 ? 10 : 15;
+            deje que panesillosGrandesPrecio = panesillosGrandesCantidad >= 25 ? 20 : 25;
+            
+            const mantecadosSubtotal = mantecadosCantidad * mantecadosPrecio;
+            const panesillosSubtotal = panesillosQty * panesillosPrice;
+            const panesillosGrandesSubtotal = panesillosGrandesQty * panesillosGrandesPrice;
+            
+            const productsTotal = mantecadosSubtotal + panesillosSubtotal + panesillosGrandesSubtotal;
+            
+            const transferCharge = paymentMethod === 'transferencia' ? productsTotal * 0.1 : 0;
+            
+            const totalCalculated = totalProductos + CargoTransferencia + CostoEnvío;
+            
+            // Solo actualizar el total si no ha sido editado manualmente
+            const totalInput = document.getElementById('editTotalInput');
+            si (!totalInput.dataset.manualEdit) {
+                totalInput.valor = totalCalculado;
+                totalInput.dataset.lastAutoValue = totalCalculated;
+            }
+            
+            documento.getElementById('editCalculationDetails').textContent =
+                `Productos: $${productsTotal} + Domicilio: $${deliveryCost} + Transferencia: $${transferCharge}`;
+        }
+        
+        // Guardar cambios del pedido editado
+        función saveEditedOrder() {
+            si (!editingOrder) retorna;
+            
+            const orderIndex = pedidos.findIndex(o => o.id === editingOrder.id);
+            
+            si (índiceDeOrden !== -1) {
+                const mantecadosQty = parseInt(document.getElementById('editMantecados').value) || 0;
+                const panesillosQty = parseInt(document.getElementById('editPanesillos').value) || 0;
+                const panesillosGrandesQty = parseInt(document.getElementById('editPanesillosGrandes').value) || 0;
+                
+                const quiereEntrega = document.getElementById('editDeliveryYes').checked;
+                const deliveryCost = quiereEntrega ?(parseInt(document.getElementById('editDeliveryCost').value) || 0) : 0;
+                const direccionDeEntrega = quiereEntrega ? document.getElementById('editDeliveryAddress').value : '';
+                const paymentMethod = document.querySelector('input[name="editPayment"]:checked').value;
+                const total = parseFloat(document.getElementById('editTotalInput').value) || 0;
+                
+                // Liberar el horario anterior
+                constante oldDateTimeKey = `${editingOrder.date}-${editingOrder.time}`;
+                eliminar bookedTimes[oldDateTimeKey];
+                
+                // Actualizar datos del pedido
+                pedidos[orderIndex].customerName = document.getElementById('editCustomerName').value;
+                pedidos[orderIndex].phone = document.getElementById('editPhone').value;
+                pedidos[índiceDeOrden].quiereEntrega = quiereEntrega;
+                pedidos[índiceDeOrden].direccionDeEntrega = direccionDeEntrega;
+                pedidos[índiceDeOrden].costoEntrega = costoEntrega;
+                pedidos[orderIndex].date = document.getElementById('editOrderDate').value;
+                pedidos[orderIndex].time = document.getElementById('editOrderTime').value;
+                pedidos[índiceDeOrden].MétodoDePago = métodoDePago;
+                pedidos[orderIndex].status = document.getElementById('editStatus').value;
+                pedidos[orderIndex].total = total; // Usar el total editado manualmente
+                
+                // Calcular nuevos precios según cantidad (NUEVOS PRECIOS)
+                let mantecadosPrecio = mantecadosCantidad >= 30 ? 25: 35;
+                deje que panesillosPrecio = panesillosCantidad >= 50 ? 10 : 15;
+                deje que panesillosGrandesPrecio = panesillosGrandesCantidad >= 25 ? 20 : 25;
+                
+                const mantecadosSubtotal = mantecadosCantidad * mantecadosPrecio;
+                const panesillosSubtotal = panesillosQty * panesillosPrice;
+                const panesillosGrandesSubtotal = panesillosGrandesQty * panesillosGrandesPrice;
+                
+                const productsTotal = mantecadosSubtotal + panesillosSubtotal + panesillosGrandesSubtotal;
+                const transferCharge = paymentMethod === 'transferencia' ? productsTotal * 0.1 : 0;
+                
+                // Actualizar productos y totales (usar los precios calculados)
+                pedidos[índiceDeOrden].productos.mantecados.cantidad = mantecadosQty;
+                pedidos[orderIndex].productos.mantecados.precio = preciomantecados;
+                pedidos[orderIndex].productos.mantecados.subtotal = mantecadosSubtotal;
+                
+                pedidos[orderIndex].products.panesillos.quantity = panesillosQty;
+                pedidos[índiceDePedido].productos.panesillos.precio = panesillosPrecio;
+                pedidos[orderIndex].products.panesillos.subtotal = panesillosSubtotal;
+                
+                pedidos[orderIndex].productos.panesillosGrandes.cantidad = panesillosGrandesQty;
+                pedidos[orderIndex].productos.panesillosGrandes.precio = panesillosGrandesPrice;
+                pedidos[orderIndex].products.panesillosGrandes.subtotal = panesillosGrandesSubtotal;
+                
+                pedidos[índiceDeOrden].totalProductos = totalProductos;
+                pedidos[orderIndex].transferCharge = transferCharge;
+                
+                // Reservar nuevo horario
+                constante newDateTimeKey = `${pedidos[índiceDePedido].fecha}-${pedidos[índiceDePedido].hora}`;
+                bookedTimes[nuevaFechaHoraClave] = verdadero;
+                
+                guardarOrdenes();
+                cargarÓrdenes();
+                
+                cerrarEditModal();
+                
+                showNotification(`Pedido #${editingOrder.id} actualizado correctamente. Nuevo total: $${total}`, 'success');
+                
+                editingOrder = nulo;
+                selectedOrderId = nulo;
+            }
+        }
+        
+        // Cerrar modal de edicÃ³n
+        función closeEditModal() {
+            documento.getElementById('editModal').classList.add('oculto');
+            const totalInput = document.getElementById('editTotalInput');
+            eliminar totalInput.dataset.manualEdit;
+            eliminar totalInput.dataset.lastAutoValue;
+            editingOrder = nulo;
+        }
+        
+        // Eliminar pedido
+        función deleteOrder() {
+            si (!selectedOrderId) {
+                showNotification('Por favor seleccione un pedido.', 'warning');
+                devolver;
+            }
+            
+            if (confirm('Â¿Está seguro de eliminar este pedido? Esta acción no se puede deshacer.')) {
+                const orderIndex = pedidos.findIndex(o => o.id === selectedOrderId);
+                
+                si (índiceDeOrden !== -1) {
+                    const orden = pedidos[índiceOrden];
+                    constante dateTimeKey = `${pedido.fecha}-${pedido.hora}`;
+                    eliminar bookedTimes[dateTimeKey];
+                    
+                    pedidos.splice(índiceDeOrden, 1);
+                    guardarOrdenes();
+                    cargarÓrdenes();
+                    showNotification(`Pedido #${selectedOrderId} eliminado.`, 'success');
+                    selectedOrderId = nulo;
+                }
+            }
+        }
+        
+        //Guardar pedidos en localStorage
+        función saveOrders() {
+            localStorage.setItem('panaderiaArjonaOrdenes', JSON.stringify(ordenes));
+            localStorage.setItem('panaderiaArjonaNextId', nextOrderId.toString());
+        }
+        
+        // Mostrar notificación
+        función showNotification(mensaje, tipo = 'info') {
+            const notificationContainer = document.getElementById('notificationContainer');
+            
+            const notificación = document.createElement('div');
+            notificación.className = `notificación ${tipo}`;
+            
+            deje que el icono = 'fa-info-circle';
+            si (tipo === 'éxito') icono = 'fa-check-circle';
+            si (tipo === 'error') icono = 'fa-circulo-de-exclamacion';
+            si (tipo === 'advertencia') icono = 'fa-exclamation-triangle';
+            
+            notificación.innerHTML = `
+                <i class="fas ${icon}"></i>
+                <span>${mensaje}</span>
+            `;
+            
+            notificationContainer.appendChild(notificación);
+            
+            establecerTiempo de espera(() => {
+                notificación.eliminar();
+            }, 5000);
+        }
+    </script>
+</cuerpo>
 </html>
